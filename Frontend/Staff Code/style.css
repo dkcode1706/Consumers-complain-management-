@@ -1,0 +1,204 @@
+/* --------- Reset --------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+
+/* --------- Page bg --------- */
+body {
+  font-family: "Segoe UI", Roboto, system-ui, Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-size: 300% 300%;
+  animation: bgMove 12s ease-in-out infinite;
+}
+
+@keyframes bgMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* --------- Auth wrapper --------- */
+.auth-wrapper {
+  width: 420px;
+  max-width: calc(100% - 40px);
+  border-radius: 16px;
+  overflow: hidden; /* CRITICAL: hide seams */
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+/* Toggle buttons at top */
+.toggle-buttons {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.toggle {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.25s, transform 0.15s;
+}
+.toggle.active {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.06)
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* little link-like buttons inside text */
+.linkish {
+  border: none;
+  background: none;
+  color: #ffd369;
+  cursor: pointer;
+  padding: 0;
+  font-weight: 600;
+}
+
+/* --------- Viewport that holds both forms --------- */
+.form-viewport {
+  position: relative;
+  width: 100%;
+  height: 420px; /* fixed height => consistent cover */
+  border-radius: 12px;
+  overflow: hidden; /* extra safety */
+}
+
+/* Each form fills the viewport completely and is absolutely positioned */
+.form-box {
+  position: absolute;
+  inset: 0; /* top:0;left:0;right:0;bottom:0 */
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+  transition: transform 620ms cubic-bezier(0.22, 0.9, 0.28, 1),
+    opacity 420ms ease;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* initial positions:
+   - login visible (translateX(0))
+   - register off-screen to the right (translateX(100%))
+*/
+.form-box.login {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+  z-index: 2;
+}
+.form-box.register {
+  transform: translate3d(100%, 0, 0);
+  opacity: 0;
+  z-index: 1;
+}
+
+/* When wrapper has .show-register: swap them so register slides in and login slides out */
+.auth-wrapper.show-register .form-box.login {
+  transform: translate3d(-100%, 0, 0);
+  opacity: 0;
+  z-index: 1;
+}
+.auth-wrapper.show-register .form-box.register {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+  z-index: 2;
+}
+
+/* ---- content inside forms ---- */
+h2 {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.input-group {
+  margin-bottom: 10px;
+}
+input {
+  width: 100%;
+  padding: 12px 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.09);
+  color: #fff;
+}
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus {
+  box-shadow: 0 0 0 3px rgba(118, 75, 162, 0.12);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* primary submit */
+.primary {
+  margin-top: 6px;
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(102, 126, 234, 0.18);
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(118, 75, 162, 0.18);
+}
+
+/* a small hint text */
+.hint {
+  margin-top: 10px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+}
+
+/* Responsive tweak */
+@media (max-width: 460px) {
+  .auth-wrapper {
+    width: 94%;
+    padding: 12px;
+  }
+  .form-viewport {
+    height: 520px;
+  } /* make forms taller on mobile if needed */
+}

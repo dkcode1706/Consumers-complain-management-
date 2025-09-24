@@ -1,11 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consumer Complaint Management</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <ul>
+        <!-- Navigation buttons (no functionality yet) -->
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Complaint Form</a></li>
+        <li><a href="#">Track Complaint</a></li>
+        <li><a href="#">Updates</a></li>
+      </ul>
+      <div class="profile">
+        <span id="profile-btn">👤 Profile ▾</span>
+        <ul class="dropdown" id="profile-dropdown">
+          <li><a href="#">View Profile</a></li>
+          <li><a href="#">Update Profile</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section hero">
+      <div class="intro animate-on-scroll slide-left">
+        <h1>Welcome to Query Management</h1>
+        <p>
+          Many people face challenges in getting their complaints heard —
+          <b>long delays</b>, <b>unclear tracking</b>, and <b>lost records</b>.
+        </p>
+        <p>
+          Our platform solves this by providing a simple and transparent way to
+          <b>register complaints</b>, <b>track them in real-time</b>, and
+          <b>receive timely updates</b>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Complaint Form Section -->
+    <section id="complaint" class="section bg-complaint">
+      <div class="form-box animate-on-scroll slide-right">
+        <h2 class="center">📝 Register a Complaint</h2>
+        <form>
+          <label for="problem">Type of Problem</label>
+          <select id="problem" required>
+            <option value="">Select an option</option>
+            <option value="billing">Billing Issue</option>
+            <option value="service">Service Interruption</option>
+            <option value="delay">Delayed Response</option>
+            <option value="other">Other</option>
+          </select>
+
+          <label for="description">Problem Description</label>
+          <textarea
+            id="description"
+            placeholder="Describe your issue..."
+            required
+          ></textarea>
+
+          <label for="reference">Reference Picture (optional)</label>
+          <input type="file" id="reference" accept="image/*" />
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Track Complaint Section -->
+    <section id="track" class="section compact bg-track">
+      <div class="form-box animate-on-scroll slide-left center">
+        <h2>🔎 Track Your Complaint</h2>
+        <p class="instruction">
+          Enter your complaint ID and password to check progress.
+        </p>
+        <form>
+          <label for="track-id">Complaint ID</label>
+          <input type="text" id="track-id" placeholder="Unique ID" required />
+
+          <label for="track-pass">Password</label>
+          <input type="password" id="track-pass" placeholder="Password" required />
+
+          <button type="submit">Track</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Updates Section -->
+    <section id="updates" class="section compact bg-updates">
+      <div class="form-box animate-on-scroll slide-right">
+        <h2 class="center">🔄 Update Complaint</h2>
+        <p class="instruction">
+          Provide your details and update your registered query.
+        </p>
+        <form>
+          <label for="update-id">Complaint ID</label>
+          <input type="text" id="update-id" placeholder="Unique ID" required />
+
+          <label for="update-pass">Password</label>
+          <input type="password" id="update-pass" placeholder="Password" required />
+
+          <label for="update-date">Date</label>
+          <input type="date" id="update-date" required />
+
+          <button type="submit">Update</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>
+        <a href="#">📧 Contact Us</a> |
+        <a href="#">🌐 Social</a> |
+        <a href="#">📊 Research</a>
+      </p>
+    </footer>
+
+    <script>
+      // Scroll animations
+      const elements = document.querySelectorAll(".animate-on-scroll");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      elements.forEach((el) => observer.observe(el));
+
+      // Profile dropdown toggle
+      const profileBtn = document.getElementById("profile-btn");
+      const dropdown = document.getElementById("profile-dropdown");
+      profileBtn.addEventListener("click", () => {
+        dropdown.style.display =
+          dropdown.style.display === "block" ? "none" : "block";
+      });
+
+      // Close dropdown when clicked outside
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".profile")) {
+          dropdown.style.display = "none";
+        }
+      });
+    </script>
+  </body>
 </html>
