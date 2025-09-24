@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Auth — Login / Register</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="auth-wrapper">
+      <div class="toggle-buttons" role="tablist" aria-label="Auth toggle">
+        <button id="loginBtn" class="toggle active" aria-pressed="true">
+          Login
+        </button>
+        <button id="registerBtn" class="toggle" aria-pressed="false">
+          Register
+        </button>
+      </div>
+
+      <div class="form-viewport">
+        <!-- LOGIN (visible by default) -->
+        <div class="form-box login" aria-hidden="false">
+          <h2>Welcome Back</h2>
+          <form id="loginForm" autocomplete="on">
+            <div class="input-group">
+              <input
+                name="identifier"
+                type="text"
+                placeholder="Unique ID or Mobile"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <input
+                name="password"
+                type="password"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <button type="submit" class="primary">Login</button>
+          </form>
+          <p class="hint">
+            New here?
+            <button class="linkish" id="openRegister">Create account</button>
+          </p>
+        </div>
+
+        <!-- REGISTER (off-screen until toggled) -->
+        <div class="form-box register" aria-hidden="true">
+          <h2>Create Account</h2>
+          <form id="registerForm" autocomplete="on">
+            <div class="input-group">
+              <input
+                name="fullname"
+                type="text"
+                placeholder="Full Name"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <input
+                name="mobile"
+                type="tel"
+                placeholder="Mobile Number"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <input
+                name="newpassword"
+                type="password"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <button type="submit" class="primary">Register</button>
+          </form>
+          <p class="hint">
+            Already registered?
+            <button class="linkish" id="openLogin">Login</button>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Toggle logic (keeps things simple and demo-friendly)
+      const wrapper = document.querySelector(".auth-wrapper");
+      const loginBtn = document.getElementById("loginBtn");
+      const registerBtn = document.getElementById("registerBtn");
+      const openRegister = document.getElementById("openRegister");
+      const openLogin = document.getElementById("openLogin");
+
+      function showRegister() {
+        wrapper.classList.add("show-register");
+        loginBtn.classList.remove("active");
+        registerBtn.classList.add("active");
+        loginBtn.setAttribute("aria-pressed", "false");
+        registerBtn.setAttribute("aria-pressed", "true");
+        document.querySelector(".login").setAttribute("aria-hidden", "true");
+        document
+          .querySelector(".register")
+          .setAttribute("aria-hidden", "false");
+      }
+
+      function showLogin() {
+        wrapper.classList.remove("show-register");
+        loginBtn.classList.add("active");
+        registerBtn.classList.remove("active");
+        loginBtn.setAttribute("aria-pressed", "true");
+        registerBtn.setAttribute("aria-pressed", "false");
+        document.querySelector(".login").setAttribute("aria-hidden", "false");
+        document.querySelector(".register").setAttribute("aria-hidden", "true");
+      }
+
+      registerBtn.addEventListener("click", showRegister);
+      loginBtn.addEventListener("click", showLogin);
+      openRegister.addEventListener("click", showRegister);
+      openLogin.addEventListener("click", showLogin);
+
+      //document.querySelectorAll('form').forEach(f => f.addEventListener('submit', e => e.preventDefault()));
+    </script>
+  </body>
+</html>
