@@ -1,13 +1,15 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import uuid
 from datetime import datetime, timezone
+import uuid
+import bcrypt
 
 app = Flask(__name__)
 CORS(app)
 
 # In-memory storage for complaints
 complaintStore = {}
+staffInfoStore = {}
 
 # Possible statuses
 statusOptions = ["Received", "Assigned", "InProgress", "Resolved", "Closed"]
@@ -86,7 +88,7 @@ def assignComplaint():
     complaint["departmentAssigned"] = department
     complaint["assignedTo"] = assignedTo
     complaint["status"] = "Assigned"
-    complaint["dateUpdated"] = datetime.now(timezone.utc).isoformat()
+    complaint["dateUpdated"] = datetime.utcnow().isoformat()
     complaint["comments"].append(
         {
             "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -112,7 +114,7 @@ def updateStatus():
 
     complaint = complaintStore[complaintId]
     complaint["status"] = newStatus
-    complaint["dateUpdated"] = datetime.now(timezone.utc).isoformat()
+    complaint["dateUpdated"] = datetime.utcnow().isoformat()
 
     if "comment" in data:
         complaint["comments"].append(
@@ -125,7 +127,7 @@ def updateStatus():
     return jsonify({"message": f"Complaint status updated to {newStatus}"}), 200
 
 
-@app.route("/getComplaint/<complaintId>", methods=["GET"])
+@app.route("/getComplaint/<int:complaintId>", methods=["GET"])
 def getComplaint(complaintId):
     if complaintId not in complaintStore:
         return jsonify({"error": "Complaint not found"}), 404
@@ -147,6 +149,43 @@ def listComplaints():
         filteredComplaints.append(complaint)
 
     return jsonify(filteredComplaints), 200
+
+
+@app.route("/registerStaff", methods=["POST"])
+def registerStaff():
+    data = request.json
+
+    if "emailId" not in data or "password" not in data:
+        return jsonify({"error": "emailId and password required"}), 400
+
+    emailId = data["emailId"]
+    if emailId in staffInfoStore:
+        return jsonify({"error": "Staff already registered"}), 400
+    password = bcrypt.hashpw(data["password"].encode("utf-8"), bcrypt.gensalt())
+
+    staffInfoStore[emailId] = {"emailId": emailId, "password": password}
+    return jsonify({"message": f"Staff {emailId} registered successfully"}), 201
+
+
+@app.route("/loginStaff", methods=["POST"])
+def loginStaff():
+    data = request.json
+
+    if "emailId" not in data or "password" not in data:
+        return jsonify({"error": "Email ID and password required"}, 400)
+
+    emailId = data["emailId"]
+    password = data["password"]
+
+    if emailId not in staffInfoStore:
+        return jsonify({"error": "Staff not found."}, 404)
+
+    stored_password = staffInfoStore[emailId]["password"]
+
+    if bcrypt.checkpw(password.encode("utf-8"), stored_password):
+        return jsonify({"message": "Login successful"}), 200
+    else:
+        return jsonify({"error": "Invalid credentials"}), 401
 
 
 if __name__ == "__main__":
