@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from datetime import datetime
+from datetime import datetime, timezone
+import uuid
 import bcrypt
 
 app = Flask(__name__)
@@ -18,10 +19,7 @@ departments = ["Billing", "ProductSupport", "TechnicalSupport", "CustomerService
 
 
 def getNextComplaintId():
-    global nextComplaintId
-    complaintId = nextComplaintId
-    nextComplaintId += 1
-    return complaintId
+    return uuid.uuid4().hex[:8].upper()
 
 
 @app.route("/registerComplaint", methods=["POST"])
@@ -48,8 +46,8 @@ def registerComplaint():
         "priority": data["priority"],  # e.g., Low, Medium, High
         "departmentAssigned": None,
         "status": "Received",
-        "dateCreated": datetime.utcnow().isoformat(),
-        "dateUpdated": datetime.utcnow().isoformat(),
+        "dateCreated": datetime.now(timezone.utc).isoformat(),
+        "dateUpdated": datetime.now(timezone.utc).isoformat(),
         "assignedTo": None,
         "comments": [],
     }
@@ -93,7 +91,7 @@ def assignComplaint():
     complaint["dateUpdated"] = datetime.utcnow().isoformat()
     complaint["comments"].append(
         {
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": datetime.now(timezone.utc).isoformat(),
             "comment": f"Complaint assigned to {assignedTo} in {department} department",
         }
     )
@@ -120,7 +118,10 @@ def updateStatus():
 
     if "comment" in data:
         complaint["comments"].append(
-            {"timestamp": datetime.utcnow().isoformat(), "comment": data["comment"]}
+            {
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "comment": data["comment"],
+            }
         )
 
     return jsonify({"message": f"Complaint status updated to {newStatus}"}), 200
