@@ -172,13 +172,21 @@ def loginStaff():
     data = request.json
 
     if "emailId" not in data or "password" not in data:
-        return jsonify({"error": "Email ID and password required"}, 400)
+        return (
+            jsonify(
+                {"error": "Email ID and password required"},
+            ),
+            400,
+        )
 
     emailId = data["emailId"]
     password = data["password"]
 
     if emailId not in staffInfoStore:
-        return jsonify({"error": "Staff not found."}, 404)
+        return (
+            jsonify({"error": "Staff not found."}),
+            404,
+        )
 
     stored_password = staffInfoStore[emailId]["password"]
 
