@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from datetime import datetime
 import bcrypt
 
 app = Flask(__name__)
+CORS(app)
 
 # In-memory storage for complaints
 complaintStore = {}
