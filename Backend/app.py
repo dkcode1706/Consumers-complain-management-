@@ -1,12 +1,12 @@
 from flask import Flask, request, jsonify
 from datetime import datetime
+import bcrypt
 
 app = Flask(__name__)
-CORS(app)
 
 # In-memory storage for complaints
 complaintStore = {}
-nextComplaintId = 1
+staffInfoStore = {}
 
 # Possible statuses
 statusOptions = ["Received", "Assigned", "InProgress", "Resolved", "Closed"]
@@ -16,7 +16,10 @@ departments = ["Billing", "ProductSupport", "TechnicalSupport", "CustomerService
 
 
 def getNextComplaintId():
-    return uuid.uuid4().hex[:8].upper()
+    global nextComplaintId
+    complaintId = nextComplaintId
+    nextComplaintId += 1
+    return complaintId
 
 
 @app.route("/registerComplaint", methods=["POST"])
@@ -43,8 +46,8 @@ def registerComplaint():
         "priority": data["priority"],  # e.g., Low, Medium, High
         "departmentAssigned": None,
         "status": "Received",
-        "dateCreated": datetime.now(timezone.utc).isoformat(),
-        "dateUpdated": datetime.now(timezone.utc).isoformat(),
+        "dateCreated": datetime.utcnow().isoformat(),
+        "dateUpdated": datetime.utcnow().isoformat(),
         "assignedTo": None,
         "comments": [],
     }
@@ -85,10 +88,10 @@ def assignComplaint():
     complaint["departmentAssigned"] = department
     complaint["assignedTo"] = assignedTo
     complaint["status"] = "Assigned"
-    complaint["dateUpdated"] = datetime.now(timezone.utc).isoformat()
+    complaint["dateUpdated"] = datetime.utcnow().isoformat()
     complaint["comments"].append(
         {
-            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "timestamp": datetime.utcnow().isoformat(),
             "comment": f"Complaint assigned to {assignedTo} in {department} department",
         }
     )
@@ -111,20 +114,17 @@ def updateStatus():
 
     complaint = complaintStore[complaintId]
     complaint["status"] = newStatus
-    complaint["dateUpdated"] = datetime.now(timezone.utc).isoformat()
+    complaint["dateUpdated"] = datetime.utcnow().isoformat()
 
     if "comment" in data:
         complaint["comments"].append(
-            {
-                "timestamp": datetime.now(timezone.utc).isoformat(),
-                "comment": data["comment"],
-            }
+            {"timestamp": datetime.utcnow().isoformat(), "comment": data["comment"]}
         )
 
     return jsonify({"message": f"Complaint status updated to {newStatus}"}), 200
 
 
-@app.route("/getComplaint/<complaintId>", methods=["GET"])
+@app.route("/getComplaint/<int:complaintId>", methods=["GET"])
 def getComplaint(complaintId):
     if complaintId not in complaintStore:
         return jsonify({"error": "Complaint not found"}), 404
