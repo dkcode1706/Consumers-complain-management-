@@ -47,7 +47,23 @@
     <section id="complaint" class="section bg-complaint">
       <div class="form-box animate-on-scroll slide-right">
         <h2 class="center">📝 Register a Complaint</h2>
-        <form>
+        <form id="complaint-form">
+          <label for="customerName">Name</label>
+          <input
+            type="text"
+            id="customerName"
+            placeholder="Enter your full name"
+            required
+          />
+
+          <label for="customerEmail">Email</label>
+          <input
+            type="email"
+            id="customerEmail"
+            placeholder="Enter your email"
+            required
+          />
+
           <label for="problem">Type of Problem</label>
           <select id="problem" required>
             <option value="">Select an option</option>
@@ -79,15 +95,26 @@
         <p class="instruction">
           Enter your complaint ID and password to check progress.
         </p>
-        <form>
-          <label for="track-id">Complaint ID</label>
-          <input type="text" id="track-id" placeholder="Unique ID" required />
+        <form id="track-form">
+          <label for="complaint-id">Complaint ID</label>
+          <input
+            type="text"
+            id="complaint-id"
+            placeholder="Unique ID"
+            required
+          />
 
-          <label for="track-pass">Password</label>
-          <input type="password" id="track-pass" placeholder="Password" required />
+          <!-- <label for="track-pass">Password</label>
+          <input
+            type="password"
+            id="track-pass"
+            placeholder="Password"
+            required
+          /> -->
 
           <button type="submit">Track</button>
         </form>
+        <div id="complaint-result" style="margin-top: 20px; color: white"></div>
       </div>
     </section>
 
@@ -103,7 +130,12 @@
           <input type="text" id="update-id" placeholder="Unique ID" required />
 
           <label for="update-pass">Password</label>
-          <input type="password" id="update-pass" placeholder="Password" required />
+          <input
+            type="password"
+            id="update-pass"
+            placeholder="Password"
+            required
+          />
 
           <label for="update-date">Date</label>
           <input type="date" id="update-date" required />
@@ -116,41 +148,11 @@
     <!-- Footer -->
     <footer>
       <p>
-        <a href="#">📧 Contact Us</a> |
-        <a href="#">🌐 Social</a> |
+        <a href="#">📧 Contact Us</a> | <a href="#">🌐 Social</a> |
         <a href="#">📊 Research</a>
       </p>
     </footer>
 
-    <script>
-      // Scroll animations
-      const elements = document.querySelectorAll(".animate-on-scroll");
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-            }
-          });
-        },
-        { threshold: 0.2 }
-      );
-      elements.forEach((el) => observer.observe(el));
-
-      // Profile dropdown toggle
-      const profileBtn = document.getElementById("profile-btn");
-      const dropdown = document.getElementById("profile-dropdown");
-      profileBtn.addEventListener("click", () => {
-        dropdown.style.display =
-          dropdown.style.display === "block" ? "none" : "block";
-      });
-
-      // Close dropdown when clicked outside
-      document.addEventListener("click", (e) => {
-        if (!e.target.closest(".profile")) {
-          dropdown.style.display = "none";
-        }
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
