@@ -59,7 +59,7 @@ if (loginForm) {
     };
 
     try {
-      const response = await fetch(`${BASE_URL}/loginStaff`, {
+      const response = await fetch(`${BASE_URL}/api/loginStaff`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -67,14 +67,15 @@ if (loginForm) {
         body: JSON.stringify(loginData),
       });
 
+      const result = await response.json();
       if (!response.ok) {
-        const error = await response.json();
-        alert("Error: " + error.error);
+        alert("Error: " + result.error);
         return;
       }
 
+      localStorage.setItem("authToken", result.token);
+
       alert(`Logged In Successfully!`);
-      // window.location.href = "/dashboard.html"
     } catch (error) {
       alert("Failed to login. Please try again later.");
       console.error(error);
@@ -107,7 +108,7 @@ if (registerForm) {
     };
 
     try {
-      const response = await fetch(`${BASE_URL}/registerStaff`, {
+      const response = await fetch(`${BASE_URL}/api/registerStaff`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
