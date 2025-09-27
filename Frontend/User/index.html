@@ -1,170 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ResolveOne</title>
-    <link rel="stylesheet" href="index.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consumer Complaint Management</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <ul>
-            <!-- Navigation buttons now linked to sections -->
-            <li><a href="#home">Home</a></li>
-            <li><a href="#complaint">Complaint Form</a></li>
-            <li><a href="#track">Track Complaint</a></li>
-            <li><a href="#updates">Updates</a></li>
-        </ul>
-        <div class="profile">
-            <span id="profile-btn">👤 Profile ▾</span>
-            <ul class="dropdown" id="profile-dropdown">
-                <li><a href="#">View Profile</a></li>
-                <li><a href="#">Update Profile</a></li>
-                <li><a href="#">Logout</a></li>
-            </ul>
-        </div>
-    </nav>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <!-- Placeholder Logo -->
+      <!--sorry mujhe logo nhi pata hai -->
+      <img src="" alt="Logo" />
+    </div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#register">Register</a></li>
+      <li><a href="#stats">Stats</a></li>
+      <li><a href="#login" target="_blank">Login</a></li>
+    </ul>
+  </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="section hero">
-        <div class="intro animate-on-scroll slide-left">
-            <h1>Welcome to Query Management</h1>
-            <p>
-                Many people face challenges in getting their complaints heard —
-                <b>long delays</b>, <b>unclear tracking</b>, and <b>lost records</b>.
-            </p>
-            <p>
-                Our platform solves this by providing a simple and transparent way to
-                <b>register complaints</b>, <b>track them in real-time</b>, and
-                <b>receive timely updates</b>.
-            </p>
-        </div>
-    </section>
+  <!-- Home Section basica details ke liye  -->
+  <section id="home" class="section hero animate-on-scroll pop-out">
+    <h1>Welcome to Query Management</h1>
+    <p>
+      Many people face challenges in getting their complaints heard —
+      <b>long delays</b>, <b>unclear tracking</b>, and <b>lost records</b>.
+    </p>
+    <p>
+      Our platform solves this by providing a simple and transparent way to
+      <b>register complaints</b>, <b>track them in real-time</b>, and
+      <b>receive timely updates</b>.
+    </p>
+  </section>
 
-    <!-- Complaint Form Section -->
-    <section id="complaint" class="section bg-complaint">
-        <!--screen se pop out karne ka animation hai ye-->
-        <div class="form-box animate-on-scroll pop-out">
-            <h2 class="center">📝 Register a Complaint</h2>
-            <form id="complaint-form">
-                <label for="customerName">Name</label>
-                <input type="text" id="customerName" placeholder="Enter your full name" required />
+  <!--(Complaint Form) -->
+  <section id="register" class="section animate-on-scroll pop-out">
+    <div class="form-box">
+      <h2 class="center">📝 Register a Complaint</h2>
+      <form id="complaint-form">
+        <label for="customerName">Name</label>
+        <input type="text" id="customerName" placeholder="Enter your full name" required />
 
-                <label for="customerEmail">Email</label>
-                <input type="email" id="customerEmail" placeholder="Enter your email" required />
+        <label for="customerEmail">Email</label>
+        <input type="email" id="customerEmail" placeholder="Enter your email" required />
 
-                <label for="problem">Type of Problem</label>
+        <label for="problem">Type of Problem</label>
+        <select id="problem" required>
+          <option value="">Select an option</option>
+          <optgroup label="Billing Complaint">
+            <option>High Bill</option>
+            <option>Bill Not Received</option>
+            <option>RTGS / NEFT Billing Details</option>
+          </optgroup>
+          <optgroup label="Other Issues">
+            <option>Address Correction</option>
+            <option>Email ID Update</option>
+            <option>Meter Burnt</option>
+            <option>New Connection</option>
+          </optgroup>
+        </select>
 
-                <!-- 1. Billing Complaint -->
-                <p class="problem-heading">1. Billing Complaint</p>
-                <select id="problem" required>
-                    <option value="">Select an option</option>
-                    <optgroup label="Billing Complaint">
-                        <option>High Bill</option>
-                        <option>Registration's Hard Copy</option>
-                        <option>Registration's Soft Copy</option>
-                        <option>Bill Not Received</option>
-                        <option>Consumer Registration for Online Billing</option>
-                        <option>RTGS / NEFT Billing Details</option>
-                    </optgroup>
-                </select>
+        <label for="description">Problem Description</label>
+        <textarea id="description" placeholder="Describe your issue..." required></textarea>
 
-                <!-- 2.Bill Related Other Issues -->
-                <p class="problem-heading">2. Bill Related Other Issues</p>
-                <select required>
-                    <optgroup label="Bill Related Other Issues">
-                        <option>Change of Name on Bill</option>
-                        <option>Address Correction</option>
-                        <option>Email ID Update</option>
-                        <option>Mobile Number Update</option>
-                        <option>Update of Paid Bills</option>
-                        <option>Payment via ECS / NACH</option>
-                    </optgroup>
-                </select>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
 
-                <!--3.Meter Issues -->
-                <p class="problem-heading">3. Meter Related Issues</p>
-                <select required>
-                    <optgroup label="Testing Meter">
-                        <option>Testing of Meter</option>
-                        <option>Meter Burnt</option>
-                        <option>Other Meter Issues</option>
-                    </optgroup>
-                </select>
+  <!-- Stats Section -->
+  <!--bhai fake stats hai please change kar lena-->
+  <section id="stats" class="section animate-on-scroll pop-out">
+    <h2 class="center">📊 Complaint Statistics</h2>
+    <div class="stats-grid">
+      <div class="stat-card">✅ Complaints Solved: 123</div>
+      <div class="stat-card">📌 Active Complaints: 45</div>
+      <div class="stat-card">⏱ Avg Solve Time: 3 Days</div>
+      <div class="stat-card">🤝 Trusted People: 78</div>
+    </div>
+    <!--workflow ka bhi idea nhi tha to div bana ke chod diya hai -->
+    <div class="workflow">
+      <h3>Workflow Chart (Coming Soon)</h3>
+    </div>
+  </section>
 
-                <!-- 4.Other Consumer Services -->
-                <p class="problem-heading">4. Other Consumer Services</p>
-                <select required>
-                    <optgroup label="Other Consumer Services">
-                        <option>New Connection</option>
-                        <option>Complaints for Off Supply</option>
-                        <option>Change of Tariff</option>
-                        <option>Other</option>
-                    </optgroup>
-                </select>
+  <!-- Updates Section -->
+  <section id="updates" class="section animate-on-scroll pop-out">
+    <h2 class="center">🔄 Updates</h2>
+    <p class="center">Updates will be displayed here...</p>
+  </section>
 
-                <label for="description">Problem Description</label>
-                <textarea id="description" placeholder="Describe your issue..." required></textarea>
+  <!-- Video Guide Section -->
+  <section id="video" class="section animate-on-scroll pop-out">
+    <h2 class="center">🎥 Video Guide</h2>
+    <div class="video-box">
+      <!--bhai random video hai,sorry-->
+      <iframe width="560" height="315"
+        src="https://www.youtube.com/watch?v=kM9ASKAni_s"
+        title="Video Guide"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
 
-                <label for="reference">Reference Picture (optional)</label>
-                <input type="file" id="reference" accept="image/*" />
+  <!-- Quick Support Section -->
+  <section id="support" class="section animate-on-scroll pop-out">
+    <h2 class="center">📞 Quick Support</h2>
+    <div class="support-box">
+      <p>Email: <a href="mailto:support@example.com">support@example.com</a></p>
+      <p>Mobile: +91-9876543210</p>
+      <p>We’re here to help you 24/7 with your queries.</p>
+    </div>
+  </section>
 
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    </section>
+  <!-- Login Section (Links only) -->
+  <section id="login" class="section animate-on-scroll pop-out center">
+    <h2>🔐 Login</h2>
+    <a href="login.html" target="_blank" class="btn">User Login</a>
+    <a href="../Staff/html/stafLogin.html" target="_blank" class="btn">Staff Login</a>
+  </section>
 
-    <!-- Track Complaint Section -->
-    <section id="track" class="section compact bg-track">
-        <!--same wai animate on scroll pop out wala animation-->
-        <div class="form-box animate-on-scroll pop-out center">
-            <h2>🔎 Track Your Complaint</h2>
-            <p class="instruction">
-                Enter your complaint ID and password to check progress.
-            </p>
-            <form id="track-form">
-                <label for="complaint-id">Complaint ID</label>
-                <input type="text" id="complaint-id" placeholder="Unique ID" required />
-                <button type="submit">Track</button>
-            </form>
-            <div id="complaint-result" style="margin-top: 20px; color: white"></div>
-        </div>
-    </section>
+  <!-- Footer -->
+  <footer>
+    <p>
+      <a href="#">Contact</a> | <a href="#">Privacy Policy</a> | <a href="#">Terms</a>
+    </p>
+    <p>© 2025 Consumer Complaint Portal. All rights reserved.</p>
+  </footer>
 
-    <!-- Updates Section -->
-    <section id="updates" class="section compact bg-updates">
-        <div class="form-box animate-on-scroll pop-out">
-            <h2 class="center">🔄 Update Complaint</h2>
-            <p class="instruction">
-                Provide your details and update your registered query.
-            </p>
-            <form>
-                <label for="update-id">Complaint ID</label>
-                <input type="text" id="update-id" placeholder="Unique ID" required />
-
-                <label for="update-pass">Password</label>
-                <input type="password" id="update-pass" placeholder="Password" required />
-
-                <label for="update-date">Date</label>
-                <input type="date" id="update-date" required />
-
-                <button type="submit">Update</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>
-            <a href="#">📧 Contact Us</a> | <a href="#">🌐 Social</a> |
-            <a href="#">📊 Research</a>
-        </p>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>

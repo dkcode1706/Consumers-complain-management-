@@ -1,0 +1,195 @@
+:root {
+    --bgcr: rgba(87, 35, 244, 0.86);
+    --bgcrGradient: linear-gradient(90deg, #8e44ad, #3498db);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    /* overflow-x: hidden; */
+}
+
+body {
+    overflow-y: hidden;
+}
+
+/* CSS for first div (navbar)*/
+
+.mainCont {
+    padding-top: 22px;
+}
+
+.ulCont {
+    margin: auto;
+    padding-top: 12px;
+    /* background: var(--bgcrGradient); */
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+
+}
+
+/* position inside nav. */
+
+.li1 {
+    position: relative;
+    left: -2%;
+}
+
+.li2 {
+    position: relative;
+    left: 33%;
+}
+
+.li3 {
+    position: relative;
+    left: 23%;
+}
+
+.li4 {
+    position: relative;
+    left: 13%;
+}
+
+.li5 {
+    position: relative;
+    left: 3%;
+}
+
+
+/* styling for img in nav (logo).*/
+
+.logo {
+    width: 120px;
+}
+
+/* styling of ancor in nav. */
+
+.ulCont a {
+    text-decoration: none;
+    font-size: 23px;
+    color: black;
+}
+
+.ulCont .li:hover {
+    background-color: var(--bgcr);
+    padding: 4px 20px 4px 20px;
+    transition-delay: .2ms;
+    transition-duration: 1s;
+}
+
+.ulCont .li:active {
+    background-color: var(--bgcr);
+    padding: 4px 20px 4px 20px;
+}
+
+.ulCont .li:focus {
+    background-color: var(--bgcr);
+    padding: 4px 20px 4px 20px;
+}
+
+/* Img of half screen */
+
+.pageImg {
+    width: 50vw;
+    display: inline-block;
+}
+
+/* article ,section{
+    display: inline-block;
+} */
+.pageImg img {
+    display: inline;
+    width: 70%;
+    position: relative;
+    left: 12%;
+    top: 36px;
+}
+
+
+/* form login code */
+.mainPage {
+    width: 40vw;
+    position: relative;
+    left: 51%;
+    top: -492px;
+    background-color: #fcddc24d;
+    font-size: 1.7em;
+    box-shadow: -3px 7px 20px 16px rgb(74, 74, 74);
+    /* filter: blur(10px//); */
+}
+
+
+
+.form {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formPage {
+    width: 100%;
+}
+
+.inputWidth {
+    position: relative;
+    left: 20%;
+    width: 45%;
+    border: 2px solid black;
+    padding: 8px 5px;
+
+}
+
+.form label img {
+    position: relative;
+    top: 13px;
+    left: 20%;
+    width: 31px;
+    border: 2px solid;
+}
+
+.check {
+    position: relative;
+    left: 24%;
+
+}
+
+.downForm {
+    font-size: 21px;
+    position: relative;
+    left: 24%;
+
+    text-transform: capitalize;
+}
+
+
+.btn {
+    padding: 12px;
+    position: relative;
+    top: -15px;
+    left: 43%;
+    border: 2px solid;
+    border-radius: 18%;
+    background: var(--bgcrGradient)
+}
+
+/* forgot link  */
+
+
+.forgot {
+    top: -161px;
+    left: 15%;
+    text-decoration: none;
+    color: black;
+}
+
+.signUp {
+    top: -24px;
+    left: 35%;
+    text-decoration: none;
+    color: blue;
+}
