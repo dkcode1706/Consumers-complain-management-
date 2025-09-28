@@ -115,7 +115,7 @@ def updateStatus():
 
     complaint = complaintStore[complaintId]
     complaint["status"] = newStatus
-    complaint["dateUpdated"] = datetime.utcnow().isoformat()
+    complaint["dateUpdated"] = datetime.now(timezone.utc).isoformat()
 
     if "comment" in data:
         complaint["comments"].append(
