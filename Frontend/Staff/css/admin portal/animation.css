@@ -1,0 +1,42 @@
+/* animation for nav bar show hide */
+
+.slide {
+    /* animation: slide 2s linear 300ms alternate-reverse ; */
+
+    transition-duration: 2s;
+
+}
+
+.navImg:hover {
+    animation: blink 1.8s linear 1s infinite alternate-reverse;
+}
+
+@keyframes blink {
+    0% {
+        box-shadow: 0px 1px 20px 0px red;
+    }
+
+    100% {
+        box-shadow: 0px 1px 20px 11px red;
+
+    }
+}
+
+.ulNav a:hover {
+    animation: listBlink 1s linear 1ms infinite alternate-reverse;
+
+}
+.ulNav a:focus {
+    animation: listBlink 1s linear 1ms infinite alternate-reverse;
+
+}
+
+@keyframes listBlink {
+    0% {
+        box-shadow: 1px 1px 20px 0px #E59C86;
+    }
+
+    100% {
+           box-shadow: 1px 1px 20px 5px #E59C86;
+    }
+}

@@ -1,5 +1,5 @@
 :root {
-    --bgcr: rgba(87, 35, 244, 0.86);
+    --bgcr: rgb(241 196 15);
     --bgcrGradient: linear-gradient(90deg, #8e44ad, #3498db);
 }
 
@@ -78,6 +78,10 @@ body {
     padding: 4px 20px 4px 20px;
     transition-delay: .2ms;
     transition-duration: 1s;
+    border-radius:18%;
+    /* border-radius: 20%; */
+    width: auto;
+    height: auto;
 }
 
 .ulCont .li:active {
