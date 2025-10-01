@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="../../css/admin portal/style.css">
-    <link rel="stylesheet" href="../../css/admin portal/animation.css">
     <link rel="stylesheet" href="../../css/admin portal/overview/overviewStyle.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -14,133 +13,192 @@
 
 <body>
     <header>
-        <div class="headCont">
-            <div class="hiddenNav">
-                <img src="../../media/admin portal/nav_menu.png" alt="GUVNL" class="navHiddenImg">
-                <img src="../../media/GUVNL logo.jpg" alt="GUVNL" class="navLogo hiddenNavLogo">
-                <div class="hiddenNavProfile">
-                    <a href="./profile.html"><img src="../../media/admin portal/profile.png" alt="profile"
-                            class="profileLogo navIdentity hiddenNavProfile"></a>
-                </div>
-            </div>
-            <div class="nav">
-                <div class="close">
-                    <img src="../../media/admin portal/cross.png" alt="GUVNL" class="navImg">
-                </div>
-
-                <nav class="navBar">
-                    <ul class="ulNav">
-                        <li class=""><img src="../../media/GUVNL logo.jpg" alt="GUVNL" class="navLogo"></li>
-
-                        <li class="li">
-                            <input type="radio" name="nav" id="overview" checked>
-                            <label for="overview"><img src="../../media/admin portal/overview.png" alt=""
-                                    class="overview navIdentity"><a href="./dashboard.html">Overview</a></label>
-                        </li>
-                        <li class="li">
-                            <input type="radio" name="nav" id="visual">
-                            <label for="visual"><img src="../../media/admin portal/visual.png" alt=""
-                                    class="visualChart navIdentity"><a href="./visual.html">Visual charts</a></label>
-
-                        </li>
-                        <li class="li">
-                            <input type="radio" name="nav" id="recent">
-                            <label for="recent"><img src="../../media/admin portal/recent.png" alt=""
-                                    class="recent navIdentity"><a href="./recent.html">Recent and pending</a></label>
-
-                        </li>
-                        <li class="li">
-                            <input type="radio" name="nav" id="assignment">
-                            <label for="assignment"><img src="../../media/admin portal/assignment.png" alt=""
-                                    class="assignment navIdentity"><a href="./assignment.html">Assignment</a></label>
-
-                        </li>
-                        <li class="li">
-                            <input type="radio" name="nav" id="monitering">
-                            <label for="monitering"><img src="../../media/admin portal/monitering.png" alt=""
-                                    class="monitoring navIdentity"><a href="./monitoring.html">Monitoring</a></label>
-
-                        </li>
-                        <li class="li">
-                            <input type="radio" name="nav" id="profile">
-                            <label for="profile"><a href="./profile.html"><img
-                                        src="../../media/admin portal/profile.png" alt="profile"
-                                        class="profileLogo navIdentity"></a></label>
-
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+        <div class="nav">
+            <nav>
+                <h2 id="pageHeading">
+                    <img src="../../media/admin portal/home-removebg-preview.png" alt="" class="pageHeadingImg">Admin
+                    portal
+                </h2>
+                <br><br><br>
+                <ul class="navUl">
+                    <li class="li">
+                        <input type="radio" name="nav" id="overview" checked>
+                        <label for="dashboard" class="label"> <a href="./dashboard.html"><img
+                                    src="../../media/admin portal/overview-removebg-preview.png" alt=""
+                                    id="dashboard"><span class="navII"> Dashboard</span></a></label>
+                    </li>
+                    <br>
+                    <li class="li">
+                        <a href="./complaints.html"><img src="../../media/admin portal/complaints.png" alt=""
+                                id="complaints"><span class="navII"> Complaints</span></a>
+                    </li>
+                    <br><br>
+                    <li class="li">
+                        <a href="./assignment.html"><img src="../../media/admin portal/assignment-removebg-preview.png"
+                                alt="" id="assignments"><span class="navIII"> Assignments</span></a>
+                    </li>
+                    <br><br>
+                    <li class="li">
+                        <a href="./visual.html"><img src="../../media/admin portal/visual-removebg-preview.png" alt=""
+                                id="visualImg"><span class="navIV"> Visual report</span></a>
+                    </li>
+                    <br><br>
+                    <li class="li">
+                        <a href="../stafLogin.html"><img src="../../media/admin portal/logout-removebg-preview.png"
+                                alt="" id="logoutImg"><span class="navV"> Logout</span></a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
+    <!-- overview main content starts -->
 
-    <main class="overviewMain">
-        <!-- overview page code  -->
-        <div class="overviewMainCont">
-            <div class="overviewHeadCont">
-                <!-- totalActive -->
-                <section class="totalActive">
-                    <img src="../../media/admin portal/dashboard/complaints.png" alt="" class="totalActiveImg">
-                    <div class="activeDetails">
-                        <h2>Total complaints</h2>
-                        <br>
-                    </div>
-                    <div class="totalActiveData">
-                        <p>45</p>
-                    </div>
+    <main class="main">
+        <div class="mainHeadCont">
+            <div class="pageNav">
+                <ul class="pageUlNav">
+                    <li class="PageLi">
+                        <h1><span class="mainPageHeading">Dashboard</span></h1>
+                    </li>
+                    <li class="PageLi"><img src="../../media/admin portal/notification-removebg-preview.png"
+                            alt="Notification" class="notificationNavImg"></li>
+                    <li class="PageLi"><span class="profileLogo"><img src="" alt="" class="profileLogoImg"></span></li>
+                    <li class="PageLi">
+                        <h2><span class="userNameCont"><a href="./profile.html">Admin</a> <img
+                                    src="../../media/admin portal/down-removebg-preview.png" alt=""
+                                    class="dropdownArrow"> </span></h2>
+                    </li>
+                    <li class="PageLi"></li>
+                    <!-- here a new option will be add , curently it's balancing nav so i'm not removing this-->
+                </ul>
+            </div>
 
-                    <div class="sideColor"></div>
-                    <button class="view"><a href="./recent.html">View all</a></button>
-                </section>
-                <!-- today's new -->
-                <section class="todayNew">
-                    <div class="newComplaints">
-                        <h2>Today's complaints</h2>
-                        <br>
-                    </div>
-                    <div class="todayActiveData">
-                        <p>45</p>
-                    </div>
+        </div>
+        <br>
+        <!-- first row of data is starting from here -->
 
-                    <div class="todaysideColor"></div>
-                    <button class="todayView"><a href="./monitoring.html">View all</a></button>
-
-                </section>
-
-                <!-- complaints status breakdown -->
-
-                <!-- gone for process -->
-
-                <section class="complaintsStatus">
-                    <table class="complaintStatusTable">
-                        <tbody>
-                            <tr id="tr1" class="tr">
-                                <th id="th1">In process today</th>
-                                <td>45</td>
-                                <td><button><a href="./assignment.html">View all</a></button></td>
-                            </tr>
-                            <tr id="tr2" class="tr">
-                                <th id="th2">Resolved today</th>
-                                <td>23</td>
-                                <td><button><a href="./monitoring.html">View all</a></button></td>
-                            </tr>
-                            <tr id="tr3" class="tr">
-                                <th id="th3">Resolved this month</th>
-                                <td>45</td>
-                                <td><button><a href="./monitoring.html">View all</a></button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-                <section class="peakTrend">
-
-                    <canvas id="myChart"></canvas>
-                    <!-- check for js in (../../js/admin portal/script.js) -->
-                     <h2>Peak complaints this month</h2>
-                    
-                </section>
+        <div class="rowI">
+            <!-- total Complaints -->
+            <div class="totalComplaints">
+                <h3><img src="../../media/admin portal/dashboard/complaints.png" alt="" class="rowComplaintsImg"> Total
+                    Complaints</h3>
+                <p>45</p>
+                <button><a href="./complaints.html">View all</a></button>
+            </div>
+            <!-- today's complaints -->
+            <div class="todayComplaints">
+                <h3><img src="../../media/admin portal/complaints.png" alt="" class="rowComplaintsImg"> Today's
+                    Complaints</h3>
+                <p>45</p>
+                <button><a href="./complaints.html">View all</a></button>
+            </div>
+            <!-- pending complaints  -->
+            <div class="pendingComplaints">
+                <h3><img src="../../media/admin portal/recent.png" alt="" class="rowComplaintsImg"> Pending Complaints
+                </h3>
+                <p>45</p>
+                <button><a href="./complaints.html">View all</a></button>
             </div>
         </div>
+
+        <!-- second row of data( resolved card & pie chart) is starting from here -->
+
+        <div class="rowII">
+            <div class="overdueComplaints">
+                <h3><img src="../../media/admin portal/overdeu-removebg-preview.png" alt="" class="rowComplaintsImg">
+                    Overdue Complaints
+                </h3>
+                <p>30</p>
+                <div class="reddot"></div>
+            </div>
+            <div class="resolvedComplaints">
+                <h3><img src="../../media/admin portal/resolved-removebg-preview.png" alt="" class="rowComplaintsImg">
+                    Resolved Complaints
+                </h3>
+                <p>45</p>
+                <div class="greendot"></div>
+            </div>
+            <!-- overdue table  -->
+
+            <div class="overdueTable">
+                <h3><img src="../../media/admin portal/overdeu-removebg-preview.png" alt="" class="rowComplaintsImg">
+                    Overdue Complaints
+                </h3>
+                <br>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Complain Id</th>
+                            <th>Date</th>
+                            <th>Category</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>NC25001</td>
+                            <td>22/08/25</td>
+                            <td>New Connection</td>
+                            <td><a href="./complaints.html">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>HB25234</td>
+                            <td>15/08/25</td>
+                            <td>High Bill</td>
+                            <td><a href="./complaints.html">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>NC25001</td>
+                            <td>22/08/25</td>
+                            <td>New Connection</td>
+                            <td><a href="./complaints.html">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>HB25234</td>
+                            <td>15/08/25</td>
+                            <td>High Bill</td>
+                            <td><a href="./complaints.html">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>NC25001</td>
+                            <td>22/08/25</td>
+                            <td>New Connection</td>
+                            <td><a href="./complaints.html">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>HB25234</td>
+                            <td>15/08/25</td>
+                            <td>High Bill</td>
+                            <td><a href="./complaints.html">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>NC25001</td>
+                            <td>22/08/25</td>
+                            <td>New Connection</td>
+                            <td><a href="./complaints.html">View</a></td>
+                        </tr>
+                        <tr>
+                            <td>HB25234</td>
+                            <td>15/08/25</td>
+                            <td>High Bill</td>
+                            <td><a href="./complaints.html">View</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- pie chart  -->
+            <div class="pieContI">
+                <h3>Complaints Status Breakdown</h3>
+                <canvas id="pieI"></canvas>
+            </div>
+
+
+        </div>
+
+
+
+
+
     </main>
     <script src="../../js/admin portal/script.js"></script>
 </body>

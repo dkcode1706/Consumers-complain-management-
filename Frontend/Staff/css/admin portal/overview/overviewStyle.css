@@ -1,257 +1,371 @@
-* a {
-    color: white;
+.main {
+    width: 85vw;
+    height: 97vh;
+    position: relative;
+    left: 15vw;
+    /* background-color: rgb(203, 201, 201); */
+    top: 16px;
+    overflow: hidden;
+}
+
+
+
+/* horizontal nav  */
+
+.pageUlNav {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mainPageHeading {
+    position: relative;
+    left: 3vw;
+    cursor: default;
+    box-shadow: 2px 2px 14px 5px grey;
+}
+
+.notificationNavImg {
+    width: 3vw;
+    position: relative;
+    left: 39vw;
+    cursor: pointer;
+}
+
+.profileLogo {
+    display: inline-block;
+    width: 3vw;
+    height: 6vh;
+    background-color: grey;
+    border-radius: 100%;
+    position: relative;
+    left: 26vw;
+    cursor: pointer;
+
+
+}
+
+
+.dropdownArrow {
+    width: 1vw;
+    cursor: help;
+}
+
+.userNameCont {
+    position: relative;
+    left: 12vw;
+    cursor: pointer;
+}
+
+.userNameCont a {
     text-decoration: none;
+    color: black;
 }
 
-*{
-    /* overflow: hidden; */
-    overflow-wrap: normal;
+/* styling for first row data  */
+.rowI div,
+.rowII div {
+    display: inline-block;
 }
-.overviewMain{
-    height: 0vh;
 
-}
-.overviewMainCont {
-    width: 80vw;
-    background-color: rgba(83, 80, 80, 0.355);
-    height: 100vh;
+/* total complaints */
+
+.totalComplaints {
+    width: 22vw;
+    height: 8vw;
+    padding: 10px 0px 0px 0px;
+    background-color: rgba(146, 147, 148, 0.271);
     position: relative;
-    top: -46vw;
-    left: 20%;
-}
-.overviewHeadCont{
-    height: 0vh;
-}
-
-/* totalActive styling */
-
-.sideColor {
-    background-color: rgba(63, 64, 64, 0.438);
-    width: 10vw;
-    height: 31vh;
-    position: relative;
-    left: 75%;
-    top: -15vw;
-}
-
-.totalActive {
-    background-color: bisque;
-    width: 40vw;
-    height: 40vh;
-    position: relative;
-    top: 4vw;
-    left: 5%;
-    border-radius: 8%;
-}
-
-.totalActiveImg {
-    width: 80px;
-    position: relative;
-    left: 88px;
-    top: 4vw;
-}
-
-.activeDetails {
-    /* background-color: rgb(70, 147, 213); */
-    width: 30vh;
-    height: 5vh;
-    margin: auto;
-    position: relative;
-    left: -5%;
-    border-bottom: 2px solid;
-    top: -4vw;
-    padding-top: 63px;
-    font-size: larger;
-}
-
-.totalActiveData {
-    width: 30vh;
-    height: 5vh;
-    margin: auto;
-    position: relative;
-    left: 7%;
-    /* border-bottom: 2px solid; */
-    top: -4vw;
-    padding-top: 43px;
-    font-size: xxx-large;
-    font-weight: bold;
-    color: red;
-}
-
-/* overview button styling */
-.view {
-    position: relative;
-    left: 78%;
-    top: -24vw;
-    width: 8vw;
-    height: 7vh;
-    color: white;
-    font-size: large;
-    cursor: pointer;
-    background: linear-gradient(152deg, rgba(95, 100, 100, 0), rgba(129, 127, 127, 0.633), rgb(65, 62, 62));
-}
-
-.view:hover {
-    background: none;
-    background-color: rgba(229, 229, 103, 0.54);
-    color: blue;
-
-    transition-duration: 300ms;
-    box-shadow: 1px 1px 20px 5px #99e596cd;
-}
-
-.view:hover :nth-child(1) {
-    color: blue;
-}
-
-
-/* today new styling */
-
-
-.todaysideColor {
-    background-color: rgba(63, 64, 64, 0.438);
-    width: 4vw;
-    height: 10vh;
-    position: relative;
-    left: 83%;
-    top: -8vw;
-}
-
-.todayNew {
-    background-color: rgba(82, 122, 222, 0.756);
-    width: 24vw;
-    height: 15vh;
-    position: relative;
-    top: 8vw;
-    left: 8%;
-    border-radius: 8%;
-}
-
-
-.newComplaints {
-    /* background-color: rgb(70, 147, 213); */
-    width: 37vh;
-    height: 0vh;
-    /* margin: auto; */
-    position: relative;
-    left: 16%;
-    /* border-bottom: 2px solid; */
-    top: -3vw;
-    padding-top: 63px;
-    font-size: larger;
-}
-
-.todayActiveData {
-    width: 30vh;
-    height: 5vh;
-    margin: auto;
-    position: relative;
-    left: 19%;
-    /* border-bottom: 2px solid; */
-    top: -3vw;
-    padding-top: 43px;
-    font-size: xx-large;
-    font-weight: bold;
-    color: red;
-}
-
-/* today button styling */
-.todayView {
-    position: relative;
-    left: 83%;
-    top: -11.5vw;
-    width: 4vw;
-    height: 5vh;
-    color: white;
-    font-size: x-small;
-    cursor: pointer;
-    background: linear-gradient(152deg, rgba(95, 100, 100, 0), rgba(129, 127, 127, 0.633), rgb(65, 62, 62));
-}
-
-.todayView:hover {
-    background: none;
-    background-color: rgba(229, 229, 103, 0.54);
-    color: blue;
-    transition-duration: 300ms;
-    box-shadow: 1px 1px 20px 5px #99e596cd;
-}
-
-.todayView:hover :nth-child(1) {
-    color: blue;
-}
-
-/* complaints status breakdown */
-
-.complaintsStatus {
-    background-color: rgba(82, 122, 222, 0);
-    width: 30vw;
-    height: 34vh;
-    position: relative;
-    top: -20vw;
-    left: 58%;
-    border-radius: 8%;
-}
-
-.complaintStatusTable {
-    width: 100%;
-    height: 100%;
-    font-size: large;
-}
-
-.complaintStatusTable,
-.complaintStatusTable th,
-.complaintStatusTable td {
-    border: 2px solid black;
-}
-
-.tr :nth-child(2) {
-    color: red;
-    font-size: large;
-    width: 30%;
+    left: 2vw;
+    top: 1vw;
     text-align: center;
+    font-size: xx-large;
 }
 
-/* button styling */
+.rowComplaintsImg {
+    width: 2vw;
+    /* filter: brightness(0) invert(1); */
+}
 
-.complaintStatusTable button {
+.totalComplaints :nth-child(2) {
+    font-size: xxx-large;
     position: relative;
-    left: 6px;
-    top: 0vw;
-    /* margin: auto; */
-    width: 90%;
-    height: 49%;
+    left: -4vw;
+    top: 1vw;
+    color: red;
+    ;
+}
+
+.totalComplaints :nth-child(3) {
+    width: 5vw;
+    height: 5vh;
+    position: relative;
+    left: 7vw;
+    top: -2vw;
+    background-color: rgba(29, 85, 215);
+    border-radius: 10%;
+}
+
+.totalComplaints :nth-child(3) a {
+    text-decoration: none;
     color: white;
-    font-size: medium;
-    cursor: pointer;
-    background: linear-gradient(152deg, rgba(95, 100, 100, 0), rgba(129, 127, 127, 0.633), rgb(65, 62, 62));
+    font-weight: bold;
 }
 
-.complaintStatusTable button:hover {
-    background: none;
-    background-color: rgba(229, 229, 103, 0.54);
-    color: blue;
-    transition-duration: 300ms;
-    box-shadow: 1px 1px 20px 5px #99e596cd;
-}
+/* today's complaints styling */
 
-.complaintStatusTable button:hover :nth-child(1) {
-    color: blue;
-}
-.complaintStatusTable tr:hover{
-    background-color: rgba(128, 128, 128, 0.371);
-}
-
-
-/* peak trend of complaits (pie chart) */
-
-.peakTrend {
-    width: 20vw;
+.todayComplaints {
+    width: 25vw;
+    height: 8vw;
+    padding: 10px 0px 0px 0px;
+    background-color: rgba(146, 147, 148, 0.271);
     position: relative;
-    left: 57vw;
-    top: -19vw;
+    left: 6.2vw;
+    top: 1vw;
+    text-align: center;
+    font-size: xx-large;
+
 }
 
-#myChart {
-    width: 15vw !important;
-    height: 30vh !important;
+.rowComplaintsImg {
+    width: 2vw;
+    /* filter: brightness(0) invert(1); */
+}
+
+.todayComplaints :nth-child(2) {
+    font-size: xxx-large;
+    position: relative;
+    left: -4vw;
+    top: 1vw;
+    color: red;
+    ;
+}
+
+.todayComplaints :nth-child(3) {
+    width: 5vw;
+    height: 5vh;
+    position: relative;
+    left: 7vw;
+    top: -2vw;
+    background-color: rgba(29, 85, 215);
+    border-radius: 10%;
+}
+
+.todayComplaints :nth-child(3) a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* pending complaints styling */
+
+.pendingComplaints {
+    width: 25vw;
+    height: 8vw;
+    padding: 10px 0px 0px 0px;
+    background-color: rgba(146, 147, 148, 0.271);
+    position: relative;
+    left: 10vw;
+    top: 1vw;
+    text-align: center;
+    font-size: xx-large;
+
+}
+
+.rowComplaintsImg {
+    width: 2vw;
+    /* filter: brightness(0) invert(1); */
+}
+
+.pendingComplaints :nth-child(2) {
+    font-size: xxx-large;
+    position: relative;
+    left: -4vw;
+    top: 1vw;
+    color: red;
+    ;
+}
+
+.pendingComplaints :nth-child(3) {
+    width: 5vw;
+    height: 5vh;
+    position: relative;
+    left: 7vw;
+    top: -2vw;
+    background-color: rgba(29, 85, 215);
+    border-radius: 10%;
+}
+
+.pendingComplaints :nth-child(3) a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Overdue complaints styling */
+
+.overdueComplaints {
+    width: 15vw;
+    height: 12vw;
+    padding: 30px 0px 0px 0px;
+    background-color: rgba(146, 147, 148, 0.271);
+    position: relative;
+    left: 2vw;
+    top: 15.2vw;
+    text-align: center;
+    font-size: 1.8em;
+
+}
+
+.rowComplaintsImg {
+    width: 2vw;
+    /* filter: brightness(0) invert(1); */
+}
+
+.overdueComplaints :nth-child(2) {
+    font-size: xxx-large;
+    position: relative;
+    left: 4vw;
+    top: 1vw;
+    color: green;
+    font-weight: bolder;
+}
+
+.overdueComplaints :nth-child(3) {
+    width: 1vw;
+    height: 2vh;
+    position: relative;
+    left: -1vw;
+    top: -2vw;
+    background-color: rgb(255, 42, 0);
+    border-radius: 100%;
+}
+
+.overdueComplaints :nth-child(3) a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Resolved complaints styling */
+
+.resolvedComplaints {
+    width: 15vw;
+    height: 12vw;
+    padding: 30px 0px 0px 0px;
+    background-color: rgba(146, 147, 148, 0.271);
+    position: relative;
+    left: -13.2vw;
+    top: .9vw;
+    text-align: center;
+    font-size: 1.8em;
+
+}
+
+.rowComplaintsImg {
+    width: 2vw;
+    /* filter: brightness(0) invert(1); */
+}
+
+.resolvedComplaints :nth-child(2) {
+    font-size: xxx-large;
+    position: relative;
+    left: 4vw;
+    top: 1vw;
+    color: green;
+    font-weight: bolder;
+}
+
+.resolvedComplaints :nth-child(3) {
+    width: 1vw;
+    height: 2vh;
+    position: relative;
+    left: -1vw;
+    top: -2vw;
+    background-color: rgb(29, 215, 38);
+    border-radius: 100%;
+}
+
+.resolvedComplaints :nth-child(3) a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* overdue table styling */
+
+.overdueTable {
+    width: 26vw;
+    height: 25vw;
+    background-color: rgba(146, 147, 148, 0.271);
+    position: relative;
+    left: -8.8vw;
+    top: -6vw;
+    text-align: center;
+
+}
+
+.overdueTable table {
+    width: 100%;
+    height: 70%;
+    border-bottom: 2px solid;
+    cursor: pointer;
+}
+
+.overdueTable table th {
+    background-color: #819899ad;
+}
+
+.overdueTable table td:nth-child(2) {
+    /* width: 100%; */
+    background-color: rgba(255, 0, 0, 0.362);
+
+}
+
+.overdueTable table tr:hover {
+    background-color: rgba(244, 247, 249);
+;
+}
+
+.overdueTable table a {
+    text-decoration: none;
+    color: black;
+
+}
+
+.overdueTable table td:nth-child(4) {
+    background-color: rgba(244, 247, 249);
+
+}
+
+.overdueTable table td:nth-child(4):hover{
+    background-color: rgba(36, 66, 107, 0.321);
+    color: blue;
+}
+
+.overdueTable table td:nth-child(4) a:hover{
+    color: rgb(0, 0, 255);
+}
+
+
+/* pie chart styling */
+
+.pieContI {
+    width: 30vw;
+    height: 20vw;
+    padding: 30px 0px 0px 0px;
+    background-color: rgba(146, 147, 148, 0.271);
+    position: relative;
+    left: 53.2vw;
+    top: -30vw;
+    text-align: center;
+    font-size: 1.8em;
+
+}
+
+#pieI {
+    position: relative;
+    left: 7vw;
+    top: -1vw;
 }
