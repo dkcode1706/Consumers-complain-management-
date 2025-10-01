@@ -7,6 +7,8 @@
     <title>Admin</title>
     <link rel="stylesheet" href="../../css/admin portal/style.css">
     <link rel="stylesheet" href="../../css/admin portal/animation.css">
+    <link rel="stylesheet" href="../../css/admin portal/overview/overviewStyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -16,37 +18,126 @@
             <div class="hiddenNav">
                 <img src="../../media/admin portal/nav_menu.png" alt="GUVNL" class="navHiddenImg">
                 <img src="../../media/GUVNL logo.jpg" alt="GUVNL" class="navLogo hiddenNavLogo">
+                <div class="hiddenNavProfile">
+                    <a href="./profile.html"><img src="../../media/admin portal/profile.png" alt="profile"
+                            class="profileLogo navIdentity hiddenNavProfile"></a>
+                </div>
             </div>
             <div class="nav">
                 <div class="close">
                     <img src="../../media/admin portal/cross.png" alt="GUVNL" class="navImg">
                 </div>
+
                 <nav class="navBar">
                     <ul class="ulNav">
-                        <li class="li"><img src="../../media/GUVNL logo.jpg" alt="GUVNL" class="navLogo"></li>
-                        <li class="li"><a href="#"><img src="../../media/admin portal/overview.png" alt=""
-                                    class="overview navIdentity">Overview</a></li>
-                        <li class="li"><a href="#"><img src="../../media/admin portal/visual.png" alt=""
-                                    class="visualChart navIdentity">Visual charts</a></li>
-                        <li class="li"><a href="#"><img src="../../media/admin portal/recent.png" alt=""
-                                    class="recent navIdentity">Recent and pending</a></li>
-                        <li class="li"><a href="#"><img src="../../media/admin portal/assignment.png" alt=""
-                                    class="assignment navIdentity">Assignment</a></li>
-                        <li class="li"><a href="#"><img src="../../media/admin portal/monitering.png" alt=""
-                                    class="monitoring navIdentity">Monitoring</a></li>
-                        <li class="li"><a href="#"><img src="../../media/admin portal/profile.png" alt="profile"
-                                    class="profileLogo"></a></li>
+                        <li class=""><img src="../../media/GUVNL logo.jpg" alt="GUVNL" class="navLogo"></li>
+
+                        <li class="li">
+                            <input type="radio" name="nav" id="overview" checked>
+                            <label for="overview"><img src="../../media/admin portal/overview.png" alt=""
+                                    class="overview navIdentity"><a href="./dashboard.html">Overview</a></label>
+                        </li>
+                        <li class="li">
+                            <input type="radio" name="nav" id="visual">
+                            <label for="visual"><img src="../../media/admin portal/visual.png" alt=""
+                                    class="visualChart navIdentity"><a href="./visual.html">Visual charts</a></label>
+
+                        </li>
+                        <li class="li">
+                            <input type="radio" name="nav" id="recent">
+                            <label for="recent"><img src="../../media/admin portal/recent.png" alt=""
+                                    class="recent navIdentity"><a href="./recent.html">Recent and pending</a></label>
+
+                        </li>
+                        <li class="li">
+                            <input type="radio" name="nav" id="assignment">
+                            <label for="assignment"><img src="../../media/admin portal/assignment.png" alt=""
+                                    class="assignment navIdentity"><a href="./assignment.html">Assignment</a></label>
+
+                        </li>
+                        <li class="li">
+                            <input type="radio" name="nav" id="monitering">
+                            <label for="monitering"><img src="../../media/admin portal/monitering.png" alt=""
+                                    class="monitoring navIdentity"><a href="./monitoring.html">Monitoring</a></label>
+
+                        </li>
+                        <li class="li">
+                            <input type="radio" name="nav" id="profile">
+                            <label for="profile"><a href="./profile.html"><img
+                                        src="../../media/admin portal/profile.png" alt="profile"
+                                        class="profileLogo navIdentity"></a></label>
+
+                        </li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-    <main>
-        <div class="mainCont">
-            <div class="totalCompCont">
+    <main class="overviewMain">
+        <!-- overview page code  -->
+        <div class="overviewMainCont">
+            <div class="overviewHeadCont">
+                <!-- totalActive -->
                 <section class="totalActive">
+                    <img src="../../media/admin portal/dashboard/complaints.png" alt="" class="totalActiveImg">
+                    <div class="activeDetails">
+                        <h2>Total complaints</h2>
+                        <br>
+                    </div>
+                    <div class="totalActiveData">
+                        <p>45</p>
+                    </div>
 
+                    <div class="sideColor"></div>
+                    <button class="view"><a href="./recent.html">View all</a></button>
+                </section>
+                <!-- today's new -->
+                <section class="todayNew">
+                    <div class="newComplaints">
+                        <h2>Today's complaints</h2>
+                        <br>
+                    </div>
+                    <div class="todayActiveData">
+                        <p>45</p>
+                    </div>
+
+                    <div class="todaysideColor"></div>
+                    <button class="todayView"><a href="./monitoring.html">View all</a></button>
+
+                </section>
+
+                <!-- complaints status breakdown -->
+
+                <!-- gone for process -->
+
+                <section class="complaintsStatus">
+                    <table class="complaintStatusTable">
+                        <tbody>
+                            <tr id="tr1" class="tr">
+                                <th id="th1">In process today</th>
+                                <td>45</td>
+                                <td><button><a href="./assignment.html">View all</a></button></td>
+                            </tr>
+                            <tr id="tr2" class="tr">
+                                <th id="th2">Resolved today</th>
+                                <td>23</td>
+                                <td><button><a href="./monitoring.html">View all</a></button></td>
+                            </tr>
+                            <tr id="tr3" class="tr">
+                                <th id="th3">Resolved this month</th>
+                                <td>45</td>
+                                <td><button><a href="./monitoring.html">View all</a></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section class="peakTrend">
+
+                    <canvas id="myChart"></canvas>
+                    <!-- check for js in (../../js/admin portal/script.js) -->
+                     <h2>Peak complaints this month</h2>
+                    
                 </section>
             </div>
         </div>

@@ -8,7 +8,7 @@
 }
 
 .navImg:hover {
-    animation: blink 1.8s linear 1s infinite alternate-reverse;
+    animation: blink 1s linear 1s infinite alternate-reverse;
 }
 
 @keyframes blink {
@@ -22,11 +22,12 @@
     }
 }
 
-.ulNav a:hover {
+.ulNav label:hover {
     animation: listBlink 1s linear 1ms infinite alternate-reverse;
 
 }
-.ulNav a:focus {
+
+.ulNav input[type="radio"]:checked+label {
     animation: listBlink 1s linear 1ms infinite alternate-reverse;
 
 }
@@ -37,6 +38,27 @@
     }
 
     100% {
-           box-shadow: 1px 1px 20px 5px #E59C86;
+        box-shadow: 1px 1px 20px 5px #E59C86;
+    }
+}
+
+/* Nav animation ended, 
+Overview starts
+*/
+
+.view:hover,
+.todayView:hover,
+.complaintStatusTable button:hover {
+    animation: overviewBtnBlink 1s linear 1ms infinite alternate-reverse;
+
+}
+
+@keyframes overviewBtnBlink {
+    0% {
+        box-shadow: 1px 1px 20px 0px #99e596cd;
+    }
+
+    100% {
+        box-shadow: 1px 1px 20px 12px #99e596cd;
     }
 }
