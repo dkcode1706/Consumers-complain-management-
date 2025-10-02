@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../../css/admin-portal/dashboard.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="logo-icon">A</div>
+        <div class="logo-text">Admin Portal</div>
+      </div>
+
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <span class="nav-icon">📊</span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="complaints.html" class="nav-link">
+              <span class="nav-icon">📋</span>
+              <span>Complaints</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="assignment.html" class="nav-link">
+              <span class="nav-icon">✅</span>
+              <span>Assignments</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="visual.html" class="nav-link">
+              <span class="nav-icon">📈</span>
+              <span>Visual Report</span>
+            </a>
+          </li>
+          <li class="nav-item" style="margin-top: auto">
+            <a href="../staffLogin.html" class="nav-link">
+              <span class="nav-icon">🚪</span>
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <h1 class="page-title">Dashboard Overview</h1>
+        <div class="header-right">
+          <button class="notification-btn">
+            <span>🔔</span>
+            <span class="notification-badge">5</span>
+          </button>
+          <div class="user-profile">
+            <div class="user-avatar">AD</div>
+            <span class="user-name">Admin</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon blue">📝</div>
+            <div class="stat-title">Total Complaints</div>
+          </div>
+          <div class="stat-value">45</div>
+          <!-- <div class="stat-footer">
+            <button class="view-btn">View All</button>
+          </div> -->
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon purple">📅</div>
+            <div class="stat-title">Today's Complaints</div>
+          </div>
+          <div class="stat-value">8</div>
+          <!-- <div class="stat-footer">
+            <button class="view-btn">View All</button>
+          </div> -->
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon orange">⏳</div>
+            <div class="stat-title">Pending Complaints</div>
+          </div>
+          <div class="stat-value">12</div>
+          <!-- <div class="stat-footer">
+            <button class="view-btn">View All</button>
+          </div> -->
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon red">🔴</div>
+            <div class="stat-title">Overdue Complaints</div>
+          </div>
+          <div class="stat-value">30</div>
+          <!-- <div class="stat-footer">
+            <button class="view-btn">View All</button>
+          </div> -->
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <div class="stat-icon green">✅</div>
+            <div class="stat-title">Resolved Complaints</div>
+          </div>
+          <div class="stat-value">33</div>
+          <!-- <div class="stat-footer">
+            <button class="view-btn">View All</button>
+          </div> -->
+        </div>
+      </div>
+
+      <!-- Bottom Grid -->
+      <div class="bottom-grid">
+        <!-- Table -->
+        <div class="table-card">
+          <h2 class="card-title">🔴 Overdue Complaints</h2>
+          <table class="complaint-table">
+            <thead>
+              <tr>
+                <th>Complaint ID</th>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="complaint-id">NC25001</td>
+                <td>22/08/25</td>
+                <td>
+                  <span class="category-badge connection">New Connection</span>
+                </td>
+                <td><button class="table-view-btn">View</button></td>
+              </tr>
+              <tr>
+                <td class="complaint-id">HB25234</td>
+                <td>15/08/25</td>
+                <td><span class="category-badge bill">High Bill</span></td>
+                <td><button class="table-view-btn">View</button></td>
+              </tr>
+              <tr>
+                <td class="complaint-id">NC25089</td>
+                <td>10/08/25</td>
+                <td>
+                  <span class="category-badge connection">New Connection</span>
+                </td>
+                <td><button class="table-view-btn">View</button></td>
+              </tr>
+              <tr>
+                <td class="complaint-id">HB25156</td>
+                <td>05/08/25</td>
+                <td><span class="category-badge bill">High Bill</span></td>
+                <td><button class="table-view-btn">View</button></td>
+              </tr>
+              <tr>
+                <td class="complaint-id">NC25023</td>
+                <td>01/08/25</td>
+                <td>
+                  <span class="category-badge connection">New Connection</span>
+                </td>
+                <td><button class="table-view-btn">View</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Chart -->
+        <div class="chart-card">
+          <h2 class="card-title">📊 Status Breakdown</h2>
+          <canvas id="pieChart"></canvas>
+        </div>
+      </div>
+    </main>
+
+    <script src="../../js/admin-portal/dashboard.js"></script>
+  </body>
+</html>

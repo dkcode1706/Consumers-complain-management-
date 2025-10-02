@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GUVNL</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../media/logo.jpg" alt="Logo" />
+        <span>Complaint Portal</span>
+      </div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#register">Register</a></li>
+        <li><a href="#track">Track</a></li>
+        <li><a href="#stats">Stats</a></li>
+        <li><a href="#login">Login</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="section hero animate-on-scroll pop-out">
+      <h1>Welcome to Query Management</h1>
+      <p>
+        Facing <b>long delays</b> or <b>lost records</b> when filing complaints?
+        We provide a simple, transparent way to <b>register</b> and
+        <b>track</b> your issues in real time.
+      </p>
+      <a href="#register" class="btn">Get Started</a>
+    </section>
+
+    <!-- Complaint Form -->
+    <section id="register" class="section animate-on-scroll pop-out">
+      <div class="form-box">
+        <h2 class="center">📝 Register a Complaint</h2>
+        <form id="complaint-form" novalidate>
+          <label for="customerName">Name</label>
+          <input
+            type="text"
+            id="customerName"
+            placeholder="Enter your full name"
+            required
+          />
+
+          <label for="customerEmail">Email</label>
+          <input
+            type="email"
+            id="customerEmail"
+            placeholder="Enter your email"
+            required
+          />
+
+          <label for="problem">Type of Problem</label>
+          <select id="problem" required>
+            <option value="">Select an option</option>
+            <optgroup label="Billing Complaint">
+              <option>High Bill</option>
+              <option>Bill Not Received</option>
+              <option>RTGS / NEFT Billing Details</option>
+            </optgroup>
+            <optgroup label="Other Issues">
+              <option>Address Correction</option>
+              <option>Email ID Update</option>
+              <option>Meter Burnt</option>
+              <option>New Connection</option>
+            </optgroup>
+          </select>
+
+          <label for="description">Problem Description</label>
+          <textarea
+            id="description"
+            placeholder="Describe your issue..."
+            required
+          ></textarea>
+
+          <button type="submit" class="btn submit-btn">Submit</button>
+          <p class="form-status" id="form-status"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Track Complaint Section -->
+    <section id="track" class="section animate-on-scroll pop-out">
+      <div class="track-box">
+        <h2 class="center">🔍 Track Your Complaint</h2>
+        <p class="center subtext">
+          Enter your <strong>Complaint ID</strong> to check the status and
+          details of your issue.
+        </p>
+        <form id="track-form" class="track-form">
+          <div class="input-group">
+            <input
+              type="text"
+              id="complaintId"
+              placeholder="e.g. 914D85F3"
+              required
+            />
+            <button type="submit">Track</button>
+          </div>
+        </form>
+        <div id="complaint-result" class="result-box hidden">
+          <!-- Results will appear here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section id="stats" class="section animate-on-scroll pop-out">
+      <h2 class="center">📊 Complaint Statistics</h2>
+      <div class="stats-grid">
+        <div class="stat-card">✅ Solved: 123</div>
+        <div class="stat-card">📌 Active: 45</div>
+        <div class="stat-card">⏱ Avg Solve: 3 Days</div>
+        <div class="stat-card">🤝 Trusted Users: 78</div>
+      </div>
+    </section>
+
+    <!-- Support -->
+    <section id="support" class="section animate-on-scroll pop-out">
+      <h2 class="center">📞 Quick Support</h2>
+      <div class="support-box">
+        <p>
+          Email: <a href="mailto:support@example.com">support@example.com</a>
+        </p>
+        <p>Phone: +91-9876543210</p>
+        <p>We’re here to help 24/7.</p>
+      </div>
+    </section>
+
+    <!-- Login Section -->
+    <section id="login" class="section animate-on-scroll pop-out center">
+      <h2>🔐 Login</h2>
+      <a href="login.html" target="_blank" class="btn">User Login</a>
+      <a href="../Staff/html/staffLogin.html" target="_blank" class="btn"
+        >Staff Login</a
+      >
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>
+        <a href="#">Contact</a> | <a href="#">Privacy Policy</a> |
+        <a href="#">Terms</a>
+      </p>
+      <p>© 2025 Consumer Complaint Portal. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

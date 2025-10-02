@@ -1,13 +1,49 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import uuid
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
+import uuid, jwt
+import bcrypt
 
 app = Flask(__name__)
+SECRET_KEY = "RESOLVEONEXADMINTURNNOTPASS"
 CORS(app)
 
 # In-memory storage for complaints
 complaintStore = {}
+staffInfoStore = {
+    "FE008": {
+        "staffId": "FE008",
+        "password": b"$2b$12$ZujLKvqq16nVy/uo4JD.duk1KdbPCi/63LHrq0q3FvBKastm9BBZi",
+    },
+    "FE007": {
+        "staffId": "FE007",
+        "password": b"$2b$12$ZujLKvqq16nVy/uo4JD.duk1KdbPCi/63LHrq0q3FvBKastm9BBZi",
+    },
+    "BE006": {
+        "staffId": "FE006",
+        "password": b"$2b$12$ZujLKvqq16nVy/uo4JD.duk1KdbPCi/63LHrq0q3FvBKastm9BBZi",
+    },
+    "BE005": {
+        "staffId": "FE005",
+        "password": b"$2b$12$ZujLKvqq16nVy/uo4JD.duk1KdbPCi/63LHrq0q3FvBKastm9BBZi",
+    },
+    "RE004": {
+        "staffId": "RE004",
+        "password": b"$2b$12$ZujLKvqq16nVy/uo4JD.duk1KdbPCi/63LHrq0q3FvBKastm9BBZi",
+    },
+    "RE003": {
+        "staffId": "RE003",
+        "password": b"$2b$12$ZujLKvqq16nVy/uo4JD.duk1KdbPCi/63LHrq0q3FvBKastm9BBZi",
+    },
+    "DB002": {
+        "staffId": "RE002",
+        "password": b"$2b$12$ZujLKvqq16nVy/uo4JD.duk1KdbPCi/63LHrq0q3FvBKastm9BBZi",
+    },
+    "DB001": {
+        "staffId": "RE001",
+        "password": b"$2b$12$ZujLKvqq16nVy/uo4JD.duk1KdbPCi/63LHrq0q3FvBKastm9BBZi",
+    },
+}
 
 # Possible statuses
 statusOptions = ["Received", "Assigned", "InProgress", "Resolved", "Closed"]
@@ -20,7 +56,7 @@ def getNextComplaintId():
     return uuid.uuid4().hex[:8].upper()
 
 
-@app.route("/registerComplaint", methods=["POST"])
+@app.route("/api/registerComplaint", methods=["POST"])
 def registerComplaint():
     data = request.json
     requiredFields = [
@@ -58,7 +94,7 @@ def registerComplaint():
     )
 
 
-@app.route("/assignComplaint", methods=["POST"])
+@app.route("/api/assignComplaint", methods=["POST"])
 def assignComplaint():
     data = request.json
     if (
@@ -86,7 +122,7 @@ def assignComplaint():
     complaint["departmentAssigned"] = department
     complaint["assignedTo"] = assignedTo
     complaint["status"] = "Assigned"
-    complaint["dateUpdated"] = datetime.now(timezone.utc).isoformat()
+    complaint["dateUpdated"] = datetime.utcnow().isoformat()
     complaint["comments"].append(
         {
             "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -96,7 +132,7 @@ def assignComplaint():
     return jsonify({"message": "Complaint assigned successfully"}), 200
 
 
-@app.route("/updateStatus", methods=["POST"])
+@app.route("/api/updateStatus", methods=["POST"])
 def updateStatus():
     data = request.json
     if "complaintId" not in data or "status" not in data:
@@ -125,14 +161,14 @@ def updateStatus():
     return jsonify({"message": f"Complaint status updated to {newStatus}"}), 200
 
 
-@app.route("/getComplaint/<complaintId>", methods=["GET"])
+@app.route("/api/getComplaint/<string:complaintId>", methods=["GET"])
 def getComplaint(complaintId):
     if complaintId not in complaintStore:
         return jsonify({"error": "Complaint not found"}), 404
     return jsonify(complaintStore[complaintId]), 200
 
 
-@app.route("/listComplaints", methods=["GET"])
+@app.route("/api/listComplaints", methods=["GET"])
 def listComplaints():
     # Optional filters
     statusFilter = request.args.get("status")
@@ -147,6 +183,59 @@ def listComplaints():
         filteredComplaints.append(complaint)
 
     return jsonify(filteredComplaints), 200
+
+
+@app.route("/api/registerStaff", methods=["POST"])
+def registerStaff():
+    data = request.json
+
+    if "emailId" not in data or "password" not in data:
+        return jsonify({"error": "emailId and password required"}), 400
+
+    emailId = data["emailId"]
+    if emailId in staffInfoStore:
+        return jsonify({"error": "Staff already registered"}), 400
+    password = bcrypt.hashpw(data["password"].encode("utf-8"), bcrypt.gensalt())
+
+    staffInfoStore[emailId] = {"emailId": emailId, "password": password}
+    return jsonify({"message": f"Staff {emailId} registered successfully"}), 201
+
+
+@app.route("/api/loginStaff", methods=["POST"])
+def loginStaff():
+    data = request.json
+
+    if "staffId" not in data or "password" not in data:
+        return (
+            jsonify(
+                {"error": "Email ID and password required"},
+            ),
+            400,
+        )
+
+    staffId = data["staffId"]
+    password = data["password"]
+
+    if staffId not in staffInfoStore:
+        return (
+            jsonify({"error": "Staff not found."}),
+            404,
+        )
+
+    stored_password = staffInfoStore[staffId]["password"]
+
+    if bcrypt.checkpw(password.encode("utf-8"), stored_password):
+        token = jwt.encode(
+            {
+                "staffId": staffId,
+                "exp": datetime.now(timezone.utc) + timedelta(hours=1),
+            },
+            SECRET_KEY,
+            algorithm="HS256",
+        )
+        return jsonify({"message": "Login successful", "token": token}), 200
+    else:
+        return jsonify({"error": "Invalid credentials"}), 401
 
 
 if __name__ == "__main__":
