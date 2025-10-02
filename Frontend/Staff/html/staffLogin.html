@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>GUVNL | Staff Login</title>
     <link rel="icon" href="../../media/logo.jpg" />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
@@ -23,26 +23,28 @@
 
     <main class="main-container">
       <div class="image-container">
-        <img src="../media/articleImg.png" alt="Admin Login" />
+        <img src="../../media/articleImg.png" alt="Admin Login" />
       </div>
 
       <div class="form-container">
         <h1>Login</h1>
         <form class="login-form">
           <div class="input-group">
-            <img src="../media/userLogo.jpg" alt="Username" />
+            <img src="../../media/userLogo.jpg" alt="Username" />
             <input
               type="text"
-              placeholder="Employee ID"
-              name="Employ"
+              placeholder="Staff ID"
+              id="staffId"
+              name="Staff"
               required
             />
           </div>
           <div class="input-group">
-            <img src="../media/passwordLogo.png" alt="Password" />
+            <img src="../../media/passwordLogo.png" alt="Password" />
             <input
               type="password"
               placeholder="Password"
+              id="password"
               name="password"
               required
             />
@@ -58,7 +60,7 @@
 
           <div class="links">
             <a href="#" id="forgotBtn" class="forgot">Forgot password?</a>
-            <a href="#" class="signup">Sign up</a>
+            <!-- <a href="#" class="signup">Sign up</a> -->
           </div>
         </form>
       </div>
@@ -72,12 +74,13 @@
       <h2>Forgot Password</h2>
       <p>Please enter your registered email</p>
       <form class="forgot-form">
-        <input type="email" placeholder="Enter your Gmail" required />
+        <input type="email" placeholder="Enter your email" required />
         <button type="submit">Recover Password</button>
       </form>
       <button class="close-btn" id="closePopup">Back</button>
     </div>
 
     <script src="../js/forgot.js"></script>
+    <script src="../js/login.js"></script>
   </body>
 </html>

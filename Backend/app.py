@@ -10,7 +10,40 @@ CORS(app)
 
 # In-memory storage for complaints
 complaintStore = {}
-staffInfoStore = {}
+staffInfoStore = {
+    "FE008": {
+        "staffId": "FE008",
+        "password": b"$2b$12$ZujLKvqq16nVy/uo4JD.duk1KdbPCi/63LHrq0q3FvBKastm9BBZi",
+    },
+    "FE007": {
+        "staffId": "FE007",
+        "password": b"$2b$12$ZujLKvqq16nVy/uo4JD.duk1KdbPCi/63LHrq0q3FvBKastm9BBZi",
+    },
+    "BE006": {
+        "staffId": "FE006",
+        "password": b"$2b$12$ZujLKvqq16nVy/uo4JD.duk1KdbPCi/63LHrq0q3FvBKastm9BBZi",
+    },
+    "BE005": {
+        "staffId": "FE005",
+        "password": b"$2b$12$ZujLKvqq16nVy/uo4JD.duk1KdbPCi/63LHrq0q3FvBKastm9BBZi",
+    },
+    "RE004": {
+        "staffId": "RE004",
+        "password": b"$2b$12$ZujLKvqq16nVy/uo4JD.duk1KdbPCi/63LHrq0q3FvBKastm9BBZi",
+    },
+    "RE003": {
+        "staffId": "RE003",
+        "password": b"$2b$12$ZujLKvqq16nVy/uo4JD.duk1KdbPCi/63LHrq0q3FvBKastm9BBZi",
+    },
+    "DB002": {
+        "staffId": "RE002",
+        "password": b"$2b$12$ZujLKvqq16nVy/uo4JD.duk1KdbPCi/63LHrq0q3FvBKastm9BBZi",
+    },
+    "DB001": {
+        "staffId": "RE001",
+        "password": b"$2b$12$ZujLKvqq16nVy/uo4JD.duk1KdbPCi/63LHrq0q3FvBKastm9BBZi",
+    },
+}
 
 # Possible statuses
 statusOptions = ["Received", "Assigned", "InProgress", "Resolved", "Closed"]
@@ -172,7 +205,7 @@ def registerStaff():
 def loginStaff():
     data = request.json
 
-    if "emailId" not in data or "password" not in data:
+    if "staffId" not in data or "password" not in data:
         return (
             jsonify(
                 {"error": "Email ID and password required"},
@@ -180,21 +213,21 @@ def loginStaff():
             400,
         )
 
-    emailId = data["emailId"]
+    staffId = data["staffId"]
     password = data["password"]
 
-    if emailId not in staffInfoStore:
+    if staffId not in staffInfoStore:
         return (
             jsonify({"error": "Staff not found."}),
             404,
         )
 
-    stored_password = staffInfoStore[emailId]["password"]
+    stored_password = staffInfoStore[staffId]["password"]
 
     if bcrypt.checkpw(password.encode("utf-8"), stored_password):
         token = jwt.encode(
             {
-                "emailId": emailId,
+                "staffId": staffId,
                 "exp": datetime.now(timezone.utc) + timedelta(hours=1),
             },
             SECRET_KEY,
