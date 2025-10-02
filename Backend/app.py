@@ -128,7 +128,7 @@ def updateStatus():
     return jsonify({"message": f"Complaint status updated to {newStatus}"}), 200
 
 
-@app.route("/api/getComplaint/<int:complaintId>", methods=["GET"])
+@app.route("/api/getComplaint/<string:complaintId>", methods=["GET"])
 def getComplaint(complaintId):
     if complaintId not in complaintStore:
         return jsonify({"error": "Complaint not found"}), 404
