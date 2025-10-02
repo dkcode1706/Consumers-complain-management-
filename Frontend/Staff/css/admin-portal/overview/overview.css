@@ -1,0 +1,220 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ---------- NAVBAR ---------- */
+.nav {
+  position: fixed;
+  width: 18vw;
+  height: 100vh;
+  background-color: #143258;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  padding-top: 20px;
+}
+
+.pageHeadingImg {
+  width: 2.5vw;
+  margin-right: 10px;
+  filter: brightness(0) invert(1);
+}
+
+#pageHeading {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.navUl {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+}
+
+.navUl li {
+  margin-bottom: 20px;
+}
+
+.navUl li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.navUl li a:hover {
+  background-color: #24416b;
+}
+
+.navUl img {
+  width: 2.5vw;
+}
+
+/* ---------- MAIN CONTENT ---------- */
+.main {
+  margin-left: 18vw;
+  padding: 30px 40px;
+  background: #f4f6fb;
+  min-height: 100vh;
+}
+
+/* Page Header */
+.mainHeadCont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mainPageHeading {
+  font-size: 2rem;
+  color: #143258;
+}
+
+/* ---------- ROW CARDS ---------- */
+.rowI,
+.rowII {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.rowI > div,
+.rowII > div {
+  background: #fff;
+  flex: 1;
+  min-width: 220px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.rowI > div:hover,
+.rowII > div:hover {
+  transform: translateY(-5px);
+}
+
+.rowI h3,
+.rowII h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.rowI p,
+.rowII p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #143258;
+}
+
+.rowI button,
+.rowII button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: #143258;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.rowI button:hover,
+.rowII button:hover {
+  background-color: #24416b;
+}
+
+/* ---------- TABLE ---------- */
+.overdueTable table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.overdueTable th,
+.overdueTable td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.overdueTable th {
+  background-color: #143258;
+  color: #fff;
+}
+
+.overdueTable tr:nth-child(even) {
+  background-color: #f8f9fb;
+}
+
+.overdueTable a {
+  color: #143258;
+  text-decoration: underline;
+}
+
+.overdueTable a:hover {
+  color: #24416b;
+}
+
+/* ---------- PIE CHART ---------- */
+.pieContI {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  flex: 1;
+  min-width: 300px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- STATUS DOTS ---------- */
+.reddot,
+.greendot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.reddot {
+  background-color: #f44336;
+}
+
+.greendot {
+  background-color: #4caf50;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1200px) {
+  .nav {
+    width: 20vw;
+  }
+  .main {
+    margin-left: 20vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .rowI,
+  .rowII {
+    flex-direction: column;
+  }
+  .rowI > div,
+  .rowII > div {
+    min-width: 100%;
+  }
+}

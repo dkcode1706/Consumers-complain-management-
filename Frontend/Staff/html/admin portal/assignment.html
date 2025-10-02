@@ -1,55 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="logo-icon">A</div>
+        <div class="logo-text">Admin Portal</div>
+      </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="../../css/admin portal/style.css">
-</head>
-
-<body>
-    <header>
-        <div class="nav">
-            <nav>
-                <h2 id="pageHeading">
-                    <img src="../../media/admin portal/home-removebg-preview.png" alt="" class="pageHeadingImg">Admin
-                    portal
-                </h2>
-                <br><br><br>
-                <ul class="navUl">
-                    <li class="li">
-                        <a href="./dashboard.html"><img src="../../media/admin portal/overview-removebg-preview.png"
-                                alt="" id="dashboard"><span class="navII"> Dashboard</span></a>
-                    </li>
-                    <br><br>
-                    <li class="li">
-                        <label for="dashboard" class="label"> <a href="./complaints.html"><img
-                                    src="../../media/admin portal/complaints.png" alt="" id="complaints"><span
-                                    class="navII"> Complaints</span></a>
-                    </li>
-                    <br><br>
-                    <li class="li">
-                        <input type="radio" name="nav" id="complaints" checked>
-                        <label for="dashboard" class="label">
-                            <a href="./assignment.html"><img
-                                    src="../../media/admin portal/assignment-removebg-preview.png" alt=""
-                                    id="assignments"><span class="navIII"> Assignments</span></a></label>
-                    </li>
-                    <br><br>
-                    <li class="li">
-                        <a href="./visual.html"><img src="../../media/admin portal/visual-removebg-preview.png" alt=""
-                                id="visualImg"><span class="navIV"> Visual report</span></a>
-                    </li>
-                    <br><br>
-                    <li class="li">
-                        <a href="../stafLogin.html"><img src="../../media/admin portal/logout-removebg-preview.png"
-                                alt="" id="logoutImg"><span class="navV"> Logout</span></a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-</body>
-
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <span class="nav-icon">📊</span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="complaints.html" class="nav-link">
+              <span class="nav-icon">📋</span>
+              <span>Complaints</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="assignment.html" class="nav-link">
+              <span class="nav-icon">✅</span>
+              <span>Assignments</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="visual.html" class="nav-link">
+              <span class="nav-icon">📈</span>
+              <span>Visual Report</span>
+            </a>
+          </li>
+          <li class="nav-item" style="margin-top: auto">
+            <a href="../staffLogin.html" class="nav-link">
+              <span class="nav-icon">🚪</span>
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </body>
 </html>
