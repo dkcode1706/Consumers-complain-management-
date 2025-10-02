@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="icon" href="../media/GUVNL logo.jpg" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <nav class="nav">
+        <img src="../media/GUVNL logo.jpg" alt="GUVNL" class="logo" />
+        <ul class="nav-links">
+          <li><a href="../../User/index.html">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Consumer Login</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-container">
+      <div class="image-container">
+        <img src="../media/articleImg.png" alt="Admin Login" />
+      </div>
+
+      <div class="form-container">
+        <h1>Login</h1>
+        <form class="login-form">
+          <div class="input-group">
+            <img src="../media/userLogo.jpg" alt="Username" />
+            <input
+              type="text"
+              placeholder="Employee ID"
+              name="Employ"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <img src="../media/passwordLogo.png" alt="Password" />
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              required
+            />
+          </div>
+
+          <div class="options">
+            <label>
+              <input type="checkbox" name="remember" /> Remember me
+            </label>
+          </div>
+
+          <button class="btn" type="submit"><b>Login</b></button>
+
+          <div class="links">
+            <a href="#" id="forgotBtn" class="forgot">Forgot password?</a>
+            <a href="#" class="signup">Sign up</a>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Forgot Password Popup -->
+    <div class="popup" id="forgotPopup">
+      <h2>Forgot Password</h2>
+      <p>Please enter your registered email</p>
+      <form class="forgot-form">
+        <input type="email" placeholder="Enter your Gmail" required />
+        <button type="submit">Recover Password</button>
+      </form>
+      <button class="close-btn" id="closePopup">Back</button>
+    </div>
+
+    <script src="../js/forgot.js"></script>
+  </body>
+</html>
