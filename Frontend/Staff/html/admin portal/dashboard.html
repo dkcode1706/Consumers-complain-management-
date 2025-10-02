@@ -1,206 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../../css/admin portal/style.css">
-    <link rel="stylesheet" href="../../css/admin portal/overview/overviewStyle.css">
+    <link rel="stylesheet" href="../../css/admin portal/style.css" />
+    <link
+      rel="stylesheet"
+      href="../../css/admin portal/overview/overviewStyle.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <header>
-        <div class="nav">
-            <nav>
-                <h2 id="pageHeading">
-                    <img src="../../media/admin portal/home-removebg-preview.png" alt="" class="pageHeadingImg">Admin
-                    portal
-                </h2>
-                <br><br><br>
-                <ul class="navUl">
-                    <li class="li">
-                        <input type="radio" name="nav" id="overview" checked>
-                        <label for="dashboard" class="label"> <a href="./dashboard.html"><img
-                                    src="../../media/admin portal/overview-removebg-preview.png" alt=""
-                                    id="dashboard"><span class="navII"> Dashboard</span></a></label>
-                    </li>
-                    <br>
-                    <li class="li">
-                        <a href="./complaints.html"><img src="../../media/admin portal/complaints.png" alt=""
-                                id="complaints"><span class="navII"> Complaints</span></a>
-                    </li>
-                    <br><br>
-                    <li class="li">
-                        <a href="./assignment.html"><img src="../../media/admin portal/assignment-removebg-preview.png"
-                                alt="" id="assignments"><span class="navIII"> Assignments</span></a>
-                    </li>
-                    <br><br>
-                    <li class="li">
-                        <a href="./visual.html"><img src="../../media/admin portal/visual-removebg-preview.png" alt=""
-                                id="visualImg"><span class="navIV"> Visual report</span></a>
-                    </li>
-                    <br><br>
-                    <li class="li">
-                        <a href="../stafLogin.html"><img src="../../media/admin portal/logout-removebg-preview.png"
-                                alt="" id="logoutImg"><span class="navV"> Logout</span></a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+      <div class="nav">
+        <nav>
+          <h2 id="pageHeading">
+            <img
+              src="../../media/admin portal/home-removebg-preview.png"
+              alt=""
+              class="pageHeadingImg"
+            />Admin portal
+          </h2>
+          <br /><br /><br />
+          <ul class="navUl">
+            <li class="li">
+              <input type="radio" name="nav" id="overview" checked />
+              <label for="dashboard" class="label">
+                <a href="./dashboard.html"
+                  ><img
+                    src="../../media/admin portal/overview-removebg-preview.png"
+                    alt=""
+                    id="dashboard"
+                  /><span class="navII"> Dashboard</span></a
+                ></label
+              >
+            </li>
+            <br />
+            <li class="li">
+              <a href="./complaints.html"
+                ><img
+                  src="../../media/admin portal/complaints.png"
+                  alt=""
+                  id="complaints"
+                /><span class="navII"> Complaints</span></a
+              >
+            </li>
+            <br /><br />
+            <li class="li">
+              <a href="./assignment.html"
+                ><img
+                  src="../../media/admin portal/assignment-removebg-preview.png"
+                  alt=""
+                  id="assignments"
+                /><span class="navIII"> Assignments</span></a
+              >
+            </li>
+            <br /><br />
+            <li class="li">
+              <a href="./visual.html"
+                ><img
+                  src="../../media/admin portal/visual-removebg-preview.png"
+                  alt=""
+                  id="visualImg"
+                /><span class="navIV"> Visual report</span></a
+              >
+            </li>
+            <br /><br />
+            <li class="li">
+              <a href="../stafLogin.html"
+                ><img
+                  src="../../media/admin portal/logout-removebg-preview.png"
+                  alt=""
+                  id="logoutImg"
+                /><span class="navV"> Logout</span></a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
     <!-- overview main content starts -->
 
     <main class="main">
-        <div class="mainHeadCont">
-            <div class="pageNav">
-                <ul class="pageUlNav">
-                    <li class="PageLi">
-                        <h1><span class="mainPageHeading">Dashboard</span></h1>
-                    </li>
-                    <li class="PageLi"><img src="../../media/admin portal/notification-removebg-preview.png"
-                            alt="Notification" class="notificationNavImg"></li>
-                    <li class="PageLi"><span class="profileLogo"><img src="" alt="" class="profileLogoImg"></span></li>
-                    <li class="PageLi">
-                        <h2><span class="userNameCont"><a href="./profile.html">Admin</a> <img
-                                    src="../../media/admin portal/down-removebg-preview.png" alt=""
-                                    class="dropdownArrow"> </span></h2>
-                    </li>
-                    <li class="PageLi"></li>
-                    <!-- here a new option will be add , curently it's balancing nav so i'm not removing this-->
-                </ul>
-            </div>
-
+      <div class="mainHeadCont">
+        <div class="pageNav">
+          <ul class="pageUlNav">
+            <li class="PageLi">
+              <h1><span class="mainPageHeading">Dashboard</span></h1>
+            </li>
+            <li class="PageLi">
+              <img
+                src="../../media/admin portal/notification-removebg-preview.png"
+                alt="Notification"
+                class="notificationNavImg"
+              />
+            </li>
+            <li class="PageLi">
+              <span class="profileLogo"
+                ><img src="" alt="" class="profileLogoImg"
+              /></span>
+            </li>
+            <li class="PageLi">
+              <h2>
+                <span class="userNameCont"
+                  ><a href="./profile.html">Admin</a>
+                  <img
+                    src="../../media/admin portal/down-removebg-preview.png"
+                    alt=""
+                    class="dropdownArrow"
+                  />
+                </span>
+              </h2>
+            </li>
+            <li class="PageLi"></li>
+            <!-- here a new option will be add , curently it's balancing nav so i'm not removing this-->
+          </ul>
         </div>
-        <br>
-        <!-- first row of data is starting from here -->
+      </div>
+      <br />
+      <!-- first row of data is starting from here -->
 
-        <div class="rowI">
-            <!-- total Complaints -->
-            <div class="totalComplaints">
-                <h3><img src="../../media/admin portal/dashboard/complaints.png" alt="" class="rowComplaintsImg"> Total
-                    Complaints</h3>
-                <p>45</p>
-                <button><a href="./complaints.html">View all</a></button>
-            </div>
-            <!-- today's complaints -->
-            <div class="todayComplaints">
-                <h3><img src="../../media/admin portal/complaints.png" alt="" class="rowComplaintsImg"> Today's
-                    Complaints</h3>
-                <p>45</p>
-                <button><a href="./complaints.html">View all</a></button>
-            </div>
-            <!-- pending complaints  -->
-            <div class="pendingComplaints">
-                <h3><img src="../../media/admin portal/recent.png" alt="" class="rowComplaintsImg"> Pending Complaints
-                </h3>
-                <p>45</p>
-                <button><a href="./complaints.html">View all</a></button>
-            </div>
+      <div class="rowI">
+        <!-- total Complaints -->
+        <div class="totalComplaints">
+          <h3>
+            <img
+              src="../../media/admin portal/dashboard/complaints.png"
+              alt=""
+              class="rowComplaintsImg"
+            />
+            Total Complaints
+          </h3>
+          <p>45</p>
+          <button><a href="./complaints.html">View all</a></button>
         </div>
-
-        <!-- second row of data( resolved card & pie chart) is starting from here -->
-
-        <div class="rowII">
-            <div class="overdueComplaints">
-                <h3><img src="../../media/admin portal/overdeu-removebg-preview.png" alt="" class="rowComplaintsImg">
-                    Overdue Complaints
-                </h3>
-                <p>30</p>
-                <div class="reddot"></div>
-            </div>
-            <div class="resolvedComplaints">
-                <h3><img src="../../media/admin portal/resolved-removebg-preview.png" alt="" class="rowComplaintsImg">
-                    Resolved Complaints
-                </h3>
-                <p>45</p>
-                <div class="greendot"></div>
-            </div>
-            <!-- overdue table  -->
-
-            <div class="overdueTable">
-                <h3><img src="../../media/admin portal/overdeu-removebg-preview.png" alt="" class="rowComplaintsImg">
-                    Overdue Complaints
-                </h3>
-                <br>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Complain Id</th>
-                            <th>Date</th>
-                            <th>Category</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>NC25001</td>
-                            <td>22/08/25</td>
-                            <td>New Connection</td>
-                            <td><a href="./complaints.html">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>HB25234</td>
-                            <td>15/08/25</td>
-                            <td>High Bill</td>
-                            <td><a href="./complaints.html">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>NC25001</td>
-                            <td>22/08/25</td>
-                            <td>New Connection</td>
-                            <td><a href="./complaints.html">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>HB25234</td>
-                            <td>15/08/25</td>
-                            <td>High Bill</td>
-                            <td><a href="./complaints.html">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>NC25001</td>
-                            <td>22/08/25</td>
-                            <td>New Connection</td>
-                            <td><a href="./complaints.html">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>HB25234</td>
-                            <td>15/08/25</td>
-                            <td>High Bill</td>
-                            <td><a href="./complaints.html">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>NC25001</td>
-                            <td>22/08/25</td>
-                            <td>New Connection</td>
-                            <td><a href="./complaints.html">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>HB25234</td>
-                            <td>15/08/25</td>
-                            <td>High Bill</td>
-                            <td><a href="./complaints.html">View</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <!-- pie chart  -->
-            <div class="pieContI">
-                <h3>Complaints Status Breakdown</h3>
-                <canvas id="pieI"></canvas>
-            </div>
-
-
+        <!-- today's complaints -->
+        <div class="todayComplaints">
+          <h3>
+            <img
+              src="../../media/admin portal/complaints.png"
+              alt=""
+              class="rowComplaintsImg"
+            />
+            Today's Complaints
+          </h3>
+          <p>45</p>
+          <button><a href="./complaints.html">View all</a></button>
         </div>
+        <!-- pending complaints  -->
+        <div class="pendingComplaints">
+          <h3>
+            <img
+              src="../../media/admin portal/recent.png"
+              alt=""
+              class="rowComplaintsImg"
+            />
+            Pending Complaints
+          </h3>
+          <p>45</p>
+          <button><a href="./complaints.html">View all</a></button>
+        </div>
+      </div>
 
+      <!-- second row of data( resolved card & pie chart) is starting from here -->
 
+      <div class="rowII">
+        <div class="overdueComplaints">
+          <h3>
+            <img
+              src="../../media/admin portal/overdeu-removebg-preview.png"
+              alt=""
+              class="rowComplaintsImg"
+            />
+            Overdue Complaints
+          </h3>
+          <p>30</p>
+          <div class="reddot"></div>
+        </div>
+        <div class="resolvedComplaints">
+          <h3>
+            <img
+              src="../../media/admin portal/resolved-removebg-preview.png"
+              alt=""
+              class="rowComplaintsImg"
+            />
+            Resolved Complaints
+          </h3>
+          <p>45</p>
+          <div class="greendot"></div>
+        </div>
+        <!-- overdue table  -->
 
-
-
+        <div class="overdueTable">
+          <h3>
+            <img
+              src="../../media/admin portal/overdeu-removebg-preview.png"
+              alt=""
+              class="rowComplaintsImg"
+            />
+            Overdue Complaints
+          </h3>
+          <br />
+          <table>
+            <thead>
+              <tr>
+                <th>Complain Id</th>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>NC25001</td>
+                <td>22/08/25</td>
+                <td>New Connection</td>
+                <td><a href="./complaints.html">View</a></td>
+              </tr>
+              <tr>
+                <td>HB25234</td>
+                <td>15/08/25</td>
+                <td>High Bill</td>
+                <td><a href="./complaints.html">View</a></td>
+              </tr>
+              <tr>
+                <td>NC25001</td>
+                <td>22/08/25</td>
+                <td>New Connection</td>
+                <td><a href="./complaints.html">View</a></td>
+              </tr>
+              <tr>
+                <td>HB25234</td>
+                <td>15/08/25</td>
+                <td>High Bill</td>
+                <td><a href="./complaints.html">View</a></td>
+              </tr>
+              <tr>
+                <td>NC25001</td>
+                <td>22/08/25</td>
+                <td>New Connection</td>
+                <td><a href="./complaints.html">View</a></td>
+              </tr>
+              <tr>
+                <td>HB25234</td>
+                <td>15/08/25</td>
+                <td>High Bill</td>
+                <td><a href="./complaints.html">View</a></td>
+              </tr>
+              <tr>
+                <td>NC25001</td>
+                <td>22/08/25</td>
+                <td>New Connection</td>
+                <td><a href="./complaints.html">View</a></td>
+              </tr>
+              <tr>
+                <td>HB25234</td>
+                <td>15/08/25</td>
+                <td>High Bill</td>
+                <td><a href="./complaints.html">View</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- pie chart  -->
+        <div class="pieContI">
+          <h3>Complaints Status Breakdown</h3>
+          <canvas id="pieI"></canvas>
+        </div>
+      </div>
     </main>
     <script src="../../js/admin portal/script.js"></script>
-</body>
-
+  </body>
 </html>
